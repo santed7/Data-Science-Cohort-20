@@ -1,0 +1,351 @@
+timestamp,subject,organizer,duration,participant_count,type
+2025-06-02 08:00:00,Synagogue Outreach Planning — Joppa,Paul,150,7,teams_meeting
+2025-06-02 08:30:00,Letter Dictation — Philadelphia,Paul,10,4,teams_call
+2025-06-02 11:00:00,Teaching Schedule Review — Smyrna,Peter,90,7,teams_meeting
+2025-06-03 07:00:00,Baptism Service Coordination — Derbe,Paul,180,10,teams_meeting
+2025-06-03 08:15:00,Persecution Response Briefing — Philippi,Onesiphorus,150,13,teams_meeting
+2025-06-03 09:00:00,Widow's Care Logistics — Berea,Matthew,180,7,teams_meeting
+2025-06-03 10:30:00,Teaching Schedule Review — Alexandria,Tychicus,5,3,teams_call
+2025-06-05 16:00:00,Sabbath Teaching Plan — Derbe,Aristarchus,3,4,teams_chat
+2025-06-06 08:30:00,Farewell Address — Samaria,Luke,20,2,teams_call
+2025-06-07 18:00:00,Vision Interpretation Session — Perga,Paul,90,11,teams_meeting
+2025-06-09 08:30:00,Baptism Service Coordination — Tarsus,Sosthenes,20,3,teams_call
+2025-06-09 16:00:00,Persecution Response Briefing — Pergamum,Onesiphorus,30,3,teams_call
+2025-06-10 08:20:00,Trial Preparation — Puteoli,Epaphras,60,3,teams_meeting
+2025-06-10 09:00:00,Council of Apostles — Lystra,Peter,10,2,teams_call
+2025-06-10 19:30:00,Letter Dictation — Crete,Thomas,30,11,teams_meeting
+2025-06-11 07:20:00,Farewell Address — Rome,Linus,8,2,teams_chat
+2025-06-11 08:45:00,Teaching Schedule Review — Rome,Andrew,8,4,teams_chat
+2025-06-11 09:20:00,Trial Preparation — Joppa,Onesiphorus,60,9,teams_meeting
+2025-06-11 09:30:00,Idol-Meat Controversy — Colossae,Simon_Zealot,120,12,teams_meeting
+2025-06-11 14:00:00,Breaking of Bread — Hierapolis,Thaddaeus,10,4,teams_chat
+2025-06-12 08:00:00,New Convert Catechesis — Caesarea,Peter,150,6,teams_meeting
+2025-06-12 09:45:00,Missionary Strategy Session — Thyatira,Paul,10,3,teams_chat
+2025-06-12 10:20:00,Baptism Service Coordination — Berea,Trophimus,30,14,teams_meeting
+2025-06-13 09:30:00,Prayer Vigil — Miletus,Paul,45,8,teams_meeting
+2025-06-14 08:20:00,Deacon Selection — Patmos,Rufus,90,8,teams_meeting
+2025-06-14 09:00:00,Teaching Schedule Review — Galatia,Paul,120,13,teams_meeting
+2025-06-15 07:30:00,Breaking of Bread — Iconium,Matthias,10,3,teams_chat
+2025-06-15 08:30:00,Collection for the Saints — Philippi,Thaddaeus,60,15,teams_meeting
+2025-06-15 08:30:00,Vision Interpretation Session — Philadelphia,James_Zebedee,150,5,teams_meeting
+2025-06-16 09:00:00,New Convert Catechesis — Miletus,Thaddaeus,90,5,teams_meeting
+2025-06-16 10:00:00,Healing Ministry Debrief — Puteoli,Thaddaeus,150,13,teams_meeting
+2025-06-17 07:15:00,Church Planting Review — Patmos,Simon_Zealot,60,5,teams_meeting
+2025-06-17 11:00:00,Vision Interpretation Session — Crete,Olympas,45,3,teams_call
+2025-06-18 18:00:00,Persecution Response Briefing — Perga,Thaddaeus,60,14,teams_meeting
+2025-06-18 19:45:00,Elders Meeting — Iconium,Paul,5,2,teams_call
+2025-06-19 08:00:00,Hospitality Network Coordination — Philippi,Caius,60,10,teams_meeting
+2025-06-20 09:00:00,Idol-Meat Controversy — Galatia,Thomas,150,4,teams_meeting
+2025-06-20 10:15:00,Shipwreck Recovery Briefing — Miletus,Onesimus,45,2,teams_call
+2025-06-20 13:00:00,Healing Ministry Debrief — Rome,Paul,120,13,teams_meeting
+2025-06-20 16:00:00,Widow's Care Logistics — Troas,Hermas,45,7,teams_meeting
+2025-06-22 09:00:00,Persecution Response Briefing — Laodicea,Apollos,60,7,teams_meeting
+2025-06-22 10:30:00,Council of Apostles — Berea,Joseph_Barsabas,150,13,teams_meeting
+2025-06-22 14:00:00,Vision Interpretation Session — Perga,Epaphras,45,8,teams_meeting
+2025-06-23 09:00:00,Council of Apostles — Sardis,Nicanor,150,4,teams_meeting
+2025-06-23 10:00:00,Scribal Workshop — Antioch,Paul,3,3,teams_chat
+2025-06-23 18:00:00,Hospitality Network Coordination — Cyprus,Asyncritus,10,2,teams_call
+2025-06-24 19:15:00,Gentile Mission Update — Galatia,Philip,60,9,teams_meeting
+2025-06-25 09:45:00,Missionary Strategy Session — Sardis,Paul,180,5,teams_meeting
+2025-06-26 19:00:00,Gentile Mission Update — Colossae,Thaddaeus,5,2,teams_call
+2025-06-27 08:00:00,Deacon Selection — Pergamum,Timon,75,4,teams_meeting
+2025-06-27 08:00:00,Prayer Vigil — Ephesus,Mark,120,13,teams_meeting
+2025-06-27 08:00:00,Doctrinal Council — Caesarea,Bartholomew,10,3,teams_chat
+2025-06-27 09:45:00,Teaching Schedule Review — Pergamum,Cephas_Disciple,15,3,teams_call
+2025-06-27 13:00:00,Farewell Address — Sardis,Paul,120,10,teams_meeting
+2025-06-28 11:30:00,Deacon Selection — Crete,Simon_Zealot,5,3,teams_call
+2025-06-28 16:00:00,Farewell Address — Troas,Paul,75,6,teams_meeting
+2025-06-29 09:45:00,Doctrinal Council — Jerusalem,Paul,150,11,teams_meeting
+2025-06-29 13:30:00,Shipwreck Recovery Briefing — Jerusalem,Timon,30,3,teams_meeting
+2025-06-29 14:00:00,Widow's Care Logistics — Samaria,James_Zebedee,10,3,teams_call
+2025-06-30 10:30:00,Gentile Mission Update — Colossae,Parmenas,8,4,teams_chat
+2025-06-30 14:00:00,Elders Meeting — Philadelphia,Thaddaeus,45,4,teams_meeting
+2025-07-01 08:20:00,Synagogue Outreach Planning — Malta,Zenas,120,6,teams_meeting
+2025-07-01 10:00:00,Famine Relief Coordination — Malta,Erastus,5,5,teams_chat
+2025-07-01 13:00:00,Idol-Meat Controversy — Galatia,Andrew,180,6,teams_meeting
+2025-07-02 11:00:00,Deacon Selection — Lystra,Secundus,2,2,teams_chat
+2025-07-03 08:30:00,Missionary Strategy Session — Thyatira,Bartholomew,180,4,teams_meeting
+2025-07-03 14:00:00,Scribal Workshop — Miletus,Andrew,5,3,teams_call
+2025-07-04 10:30:00,Famine Relief Coordination — Thessalonica,Barnabas,3,4,teams_chat
+2025-07-05 07:30:00,Doctrinal Council — Damascus,Cleopas,120,6,teams_meeting
+2025-07-05 09:00:00,Hospitality Network Coordination — Crete,Luke,15,4,teams_call
+2025-07-05 14:15:00,Gentile Mission Update — Athens,Peter,15,2,teams_call
+2025-07-05 18:00:00,Deacon Selection — Alexandria,John,5,2,teams_call
+2025-07-06 14:45:00,Baptism Service Coordination — Troas,Nicolas,180,9,teams_meeting
+2025-07-07 09:00:00,Church Planting Review — Crete,Paul,60,5,teams_meeting
+2025-07-07 14:00:00,Church Planting Review — Thessalonica,Philip_Deacon,45,7,teams_meeting
+2025-07-08 11:30:00,Elders Meeting — Jerusalem,Hermas,20,3,teams_call
+2025-07-09 08:15:00,Hospitality Network Coordination — Berea,Philip,150,3,teams_meeting
+2025-07-11 09:30:00,Baptism Service Coordination — Joppa,Bartholomew,120,9,teams_meeting
+2025-07-12 09:30:00,Collection for the Saints — Antioch,Matthew,120,5,teams_meeting
+2025-07-12 15:30:00,Doctrinal Council — Caesarea,Matthias,2,2,teams_chat
+2025-07-12 16:00:00,Doctrinal Council — Berea,Andrew,15,2,teams_call
+2025-07-13 07:45:00,Healing Ministry Debrief — Jerusalem,Joseph_Barsabas,45,8,teams_meeting
+2025-07-13 09:20:00,Deacon Selection — Miletus,Thomas,120,12,teams_meeting
+2025-07-13 19:15:00,Baptism Service Coordination — Lystra,John,60,14,teams_meeting
+2025-07-14 16:20:00,Breaking of Bread — Perga,Aristarchus,20,3,teams_call
+2025-07-15 10:00:00,Scribal Workshop — Galatia,Andrew,45,4,teams_meeting
+2025-07-16 11:00:00,Doctrinal Council — Galatia,Thaddaeus,45,10,teams_meeting
+2025-07-18 10:20:00,Famine Relief Coordination — Thessalonica,Paul,10,3,teams_chat
+2025-07-19 08:15:00,Scribal Workshop — Sardis,Hermas,150,6,teams_meeting
+2025-07-19 13:00:00,Apostolic Letter Review — Thyatira,Matthew,2,3,teams_chat
+2025-07-19 13:45:00,Lord's Supper Preparation — Smyrna,Nicanor,45,7,teams_meeting
+2025-07-20 09:15:00,Healing Ministry Debrief — Hierapolis,Thomas,150,6,teams_meeting
+2025-07-20 09:30:00,Discipleship Training — Crete,Paul,8,4,teams_chat
+2025-07-20 10:45:00,Deacon Selection — Rome,Peter,30,9,teams_meeting
+2025-07-22 14:15:00,Hospitality Network Coordination — Damascus,Peter,60,9,teams_meeting
+2025-07-22 15:45:00,Church Planting Review — Philadelphia,Simon_Zealot,45,12,teams_meeting
+2025-07-22 18:45:00,Collection for the Saints — Troas,James_Alphaeus,45,15,teams_meeting
+2025-07-22 19:30:00,Farewell Address — Crete,Thaddaeus,60,8,teams_meeting
+2025-07-23 09:45:00,Collection for the Saints — Jerusalem,Thaddaeus,90,6,teams_meeting
+2025-07-23 16:00:00,Deacon Selection — Rome,John,8,5,teams_chat
+2025-07-23 19:30:00,Doctrinal Council — Perga,Paul,75,14,teams_meeting
+2025-07-26 07:30:00,Doctrinal Council — Caesarea,Nicolas,10,2,teams_call
+2025-07-27 08:30:00,Discipleship Training — Lystra,Nicanor,8,3,teams_chat
+2025-07-28 08:15:00,Gentile Mission Update — Hierapolis,John,150,12,teams_meeting
+2025-07-28 09:45:00,Scribal Workshop — Philippi,Bartholomew,30,2,teams_call
+2025-07-28 10:45:00,Elders Meeting — Jerusalem,Zenas,60,13,teams_meeting
+2025-07-28 16:30:00,Scribal Workshop — Samaria,Timon,3,4,teams_chat
+2025-07-29 08:00:00,Gentile Mission Update — Samaria,Simon_Zealot,90,3,teams_meeting
+2025-07-29 14:00:00,Scribal Workshop — Berea,Paul,20,3,teams_call
+2025-07-29 14:15:00,Healing Ministry Debrief — Philadelphia,Simon_Zealot,5,3,teams_chat
+2025-07-29 16:00:00,Breaking of Bread — Thessalonica,Paul,120,10,teams_meeting
+2025-07-30 09:30:00,Prayer Vigil — Iconium,James_Alphaeus,60,15,teams_meeting
+2025-07-31 09:15:00,Collection for the Saints — Alexandria,Paul,30,5,teams_meeting
+2025-08-01 09:15:00,Elders Meeting — Cyprus,Matthias,45,11,teams_meeting
+2025-08-01 14:00:00,Missionary Strategy Session — Samaria,Peter,60,4,teams_meeting
+2025-08-01 14:20:00,Gentile Mission Update — Philippi,Linus,3,5,teams_chat
+2025-08-01 14:20:00,Farewell Address — Miletus,Caius,90,15,teams_meeting
+2025-08-02 08:00:00,Shipwreck Recovery Briefing — Crete,Thaddaeus,60,11,teams_meeting
+2025-08-02 11:00:00,Healing Ministry Debrief — Joppa,James_Alphaeus,3,5,teams_chat
+2025-08-03 11:20:00,Persecution Response Briefing — Cyprus,Thomas,60,3,teams_meeting
+2025-08-04 15:30:00,Healing Ministry Debrief — Thyatira,Paul,10,2,teams_chat
+2025-08-04 19:30:00,Elders Meeting — Thyatira,Paul,10,2,teams_call
+2025-08-06 09:20:00,Idol-Meat Controversy — Puteoli,Quartus,180,10,teams_meeting
+2025-08-06 10:45:00,Teaching Schedule Review — Derbe,Paul,10,2,teams_chat
+2025-08-06 14:20:00,Synagogue Outreach Planning — Alexandria,Sopater,45,10,teams_meeting
+2025-08-06 16:20:00,Synagogue Outreach Planning — Hierapolis,Paul,5,3,teams_call
+2025-08-07 14:20:00,Farewell Address — Colossae,Thaddaeus,75,12,teams_meeting
+2025-08-07 19:00:00,Scribal Workshop — Thyatira,Sopater,45,7,teams_meeting
+2025-08-08 10:00:00,Farewell Address — Smyrna,Trophimus,60,4,teams_meeting
+2025-08-08 10:20:00,Scribal Workshop — Athens,Trophimus,3,3,teams_chat
+2025-08-08 11:00:00,Vision Interpretation Session — Iconium,Thaddaeus,60,11,teams_meeting
+2025-08-08 11:00:00,Church Planting Review — Jerusalem,Matthias,75,5,teams_meeting
+2025-08-09 15:00:00,Apostolic Letter Review — Cyprus,Onesimus,2,3,teams_chat
+2025-08-10 09:00:00,Council of Apostles — Pergamum,Barnabas,90,9,teams_meeting
+2025-08-11 08:30:00,New Convert Catechesis — Troas,Philip_Deacon,30,2,teams_call
+2025-08-11 09:45:00,Missionary Strategy Session — Joppa,Mark,60,6,teams_meeting
+2025-08-13 15:00:00,Missionary Strategy Session — Ephesus,Paul,90,13,teams_meeting
+2025-08-13 16:00:00,Discipleship Training — Crete,Hermas,10,2,teams_call
+2025-08-13 19:15:00,New Convert Catechesis — Lystra,Paul,30,2,teams_call
+2025-08-14 09:30:00,Council of Apostles — Rome,Erastus,150,15,teams_meeting
+2025-08-14 09:30:00,Farewell Address — Perga,Bartholomew,60,6,teams_meeting
+2025-08-15 16:00:00,Prayer Vigil — Crete,Matthias,90,14,teams_meeting
+2025-08-15 18:30:00,Healing Ministry Debrief — Pergamum,Andrew,45,11,teams_meeting
+2025-08-16 10:20:00,Deacon Selection — Philippi,Paul,75,8,teams_meeting
+2025-08-16 14:30:00,Apostolic Letter Review — Thyatira,James_Zebedee,60,5,teams_meeting
+2025-08-17 09:00:00,Synagogue Outreach Planning — Laodicea,Paul,45,10,teams_meeting
+2025-08-17 14:00:00,Famine Relief Coordination — Miletus,Paul,60,11,teams_meeting
+2025-08-18 09:00:00,Persecution Response Briefing — Athens,Epaphroditus,30,6,teams_meeting
+2025-08-18 16:00:00,Vision Interpretation Session — Perga,Carpus,150,4,teams_meeting
+2025-08-18 16:00:00,Idol-Meat Controversy — Jerusalem,Thaddaeus,30,3,teams_call
+2025-08-20 13:20:00,Shipwreck Recovery Briefing — Caesarea,Mark,3,5,teams_chat
+2025-08-21 09:00:00,Widow's Care Logistics — Athens,Joseph_Barsabas,90,11,teams_meeting
+2025-08-21 09:30:00,Apostolic Letter Review — Laodicea,Peter,45,10,teams_meeting
+2025-08-22 09:20:00,Prayer Vigil — Philippi,Epaphroditus,10,5,teams_chat
+2025-08-22 15:30:00,Apostolic Letter Review — Sardis,John,150,11,teams_meeting
+2025-08-23 19:30:00,Church Planting Review — Jerusalem,Philip_Deacon,60,3,teams_meeting
+2025-08-24 09:30:00,Synagogue Outreach Planning — Hierapolis,Hermes,75,3,teams_meeting
+2025-08-25 09:30:00,Farewell Address — Derbe,James_Zebedee,3,3,teams_chat
+2025-08-26 14:20:00,Shipwreck Recovery Briefing — Hierapolis,Peter,120,4,teams_meeting
+2025-08-27 14:20:00,Synagogue Outreach Planning — Perga,Timon,60,8,teams_meeting
+2025-08-28 11:30:00,Famine Relief Coordination — Philadelphia,Paul,10,2,teams_call
+2025-08-29 07:30:00,Prayer Vigil — Corinth,Thomas,120,12,teams_meeting
+2025-08-29 10:30:00,New Convert Catechesis — Ephesus,Paul,150,13,teams_meeting
+2025-08-30 14:20:00,Synagogue Outreach Planning — Troas,Paul,8,2,teams_chat
+2025-08-31 18:00:00,Council of Apostles — Damascus,Andrew,90,13,teams_meeting
+2025-09-01 09:00:00,Collection for the Saints — Jerusalem,Thomas,15,3,teams_call
+2025-09-01 09:20:00,Widow's Care Logistics — Malta,Paul,5,2,teams_chat
+2025-09-02 09:20:00,Gentile Mission Update — Joppa,Cephas_Disciple,10,2,teams_call
+2025-09-02 10:00:00,Baptism Service Coordination — Thyatira,Bartholomew,45,7,teams_meeting
+2025-09-03 08:20:00,Healing Ministry Debrief — Rome,Paul,45,5,teams_meeting
+2025-09-03 14:00:00,Famine Relief Coordination — Tarsus,Bartholomew,180,11,teams_meeting
+2025-09-03 19:00:00,Lord's Supper Preparation — Tarsus,Philip,60,4,teams_meeting
+2025-09-04 09:20:00,Collection for the Saints — Malta,Hermes,30,11,teams_meeting
+2025-09-05 10:45:00,Collection for the Saints — Lystra,Peter,45,4,teams_meeting
+2025-09-05 11:30:00,Healing Ministry Debrief — Patmos,Nicanor,120,10,teams_meeting
+2025-09-05 18:30:00,Widow's Care Logistics — Caesarea,Parmenas,45,7,teams_meeting
+2025-09-06 07:15:00,New Convert Catechesis — Berea,Paul,45,5,teams_meeting
+2025-09-06 14:30:00,Doctrinal Council — Miletus,James_Zebedee,60,3,teams_meeting
+2025-09-09 07:00:00,Shipwreck Recovery Briefing — Samaria,Matthias,30,4,teams_call
+2025-09-09 09:00:00,Shipwreck Recovery Briefing — Lystra,Paul,3,3,teams_chat
+2025-09-09 11:15:00,Doctrinal Council — Thessalonica,Bartholomew,180,4,teams_meeting
+2025-09-09 11:30:00,Widow's Care Logistics — Sardis,Andrew,180,4,teams_meeting
+2025-09-10 09:00:00,Council of Apostles — Crete,Peter,15,3,teams_call
+2025-09-10 09:30:00,Breaking of Bread — Berea,James_Alphaeus,90,5,teams_meeting
+2025-09-10 18:00:00,Vision Interpretation Session — Jerusalem,Philip,8,5,teams_chat
+2025-09-12 11:20:00,Teaching Schedule Review — Antioch,Onesimus,20,2,teams_call
+2025-09-13 14:15:00,Baptism Service Coordination — Thyatira,Paul,45,4,teams_meeting
+2025-09-13 14:45:00,Apostolic Letter Review — Cyprus,Timon,2,3,teams_chat
+2025-09-14 07:30:00,Widow's Care Logistics — Derbe,Prochorus,15,4,teams_call
+2025-09-14 08:45:00,Persecution Response Briefing — Puteoli,Paul,150,15,teams_meeting
+2025-09-14 13:00:00,Idol-Meat Controversy — Alexandria,Hermas,90,10,teams_meeting
+2025-09-14 15:00:00,Collection for the Saints — Derbe,John,15,3,teams_call
+2025-09-15 08:00:00,Teaching Schedule Review — Malta,Patrobas,2,3,teams_chat
+2025-09-15 11:45:00,Persecution Response Briefing — Thessalonica,Tychicus,5,3,teams_call
+2025-09-16 08:30:00,Prayer Vigil — Alexandria,Philip_Deacon,20,4,teams_call
+2025-09-18 14:20:00,New Convert Catechesis — Malta,Peter,90,10,teams_meeting
+2025-09-19 09:45:00,Church Planting Review — Derbe,Andrew,10,2,teams_call
+2025-09-20 09:00:00,Doctrinal Council — Thyatira,James_Alphaeus,3,2,teams_chat
+2025-09-20 15:00:00,Persecution Response Briefing — Cyprus,Phlegon,45,3,teams_call
+2025-09-21 09:20:00,Healing Ministry Debrief — Derbe,Aristarchus,180,10,teams_meeting
+2025-09-23 08:20:00,Letter Dictation — Crete,Andrew,60,8,teams_meeting
+2025-09-23 09:45:00,Hospitality Network Coordination — Sardis,Mark,3,3,teams_chat
+2025-09-23 14:30:00,Idol-Meat Controversy — Berea,Bartholomew,45,2,teams_call
+2025-09-24 16:30:00,Vision Interpretation Session — Jerusalem,John,180,15,teams_meeting
+2025-09-25 07:20:00,Persecution Response Briefing — Samaria,Paul,20,3,teams_call
+2025-09-25 16:20:00,Missionary Strategy Session — Rome,Secundus,5,4,teams_call
+2025-09-27 08:20:00,Gentile Mission Update — Thyatira,Thaddaeus,2,3,teams_chat
+2025-09-27 08:30:00,Farewell Address — Malta,Crescens,180,12,teams_meeting
+2025-09-27 15:00:00,Lord's Supper Preparation — Malta,James_Zebedee,5,3,teams_call
+2025-09-27 16:00:00,Famine Relief Coordination — Philippi,Peter,2,4,teams_chat
+2025-09-27 16:00:00,Elders Meeting — Caesarea,James_Zebedee,60,9,teams_meeting
+2025-09-28 07:00:00,Synagogue Outreach Planning — Philadelphia,Apollos,120,7,teams_meeting
+2025-09-28 10:00:00,Gentile Mission Update — Iconium,Quartus,8,3,teams_chat
+2025-09-29 09:00:00,Baptism Service Coordination — Crete,James_Zebedee,60,10,teams_meeting
+2025-09-29 09:20:00,Famine Relief Coordination — Corinth,Peter,120,6,teams_meeting
+2025-09-30 09:00:00,Idol-Meat Controversy — Alexandria,James_Alphaeus,150,8,teams_meeting
+2025-09-30 10:45:00,Trial Preparation — Perga,Paul,3,5,teams_chat
+2025-09-30 11:00:00,Idol-Meat Controversy — Perga,Philip,75,9,teams_meeting
+2025-09-30 19:15:00,Missionary Strategy Session — Ephesus,Peter,60,4,teams_meeting
+2025-10-01 09:00:00,Gentile Mission Update — Pergamum,James_Zebedee,10,3,teams_call
+2025-10-02 07:00:00,Widow's Care Logistics — Samaria,Paul,15,4,teams_call
+2025-10-02 07:30:00,New Convert Catechesis — Jerusalem,Epaphras,180,14,teams_meeting
+2025-10-02 08:00:00,Apostolic Letter Review — Thyatira,Peter,10,4,teams_call
+2025-10-03 09:45:00,Healing Ministry Debrief — Thessalonica,Phlegon,60,8,teams_meeting
+2025-10-03 15:00:00,Lord's Supper Preparation — Perga,Simon_Zealot,90,3,teams_meeting
+2025-10-04 08:20:00,Scribal Workshop — Pergamum,Philip,45,9,teams_meeting
+2025-10-04 15:30:00,Elders Meeting — Pergamum,John,60,11,teams_meeting
+2025-10-04 15:30:00,Discipleship Training — Laodicea,Paul,120,10,teams_meeting
+2025-10-05 10:15:00,Council of Apostles — Miletus,Paul,150,3,teams_meeting
+2025-10-05 13:20:00,Widow's Care Logistics — Ephesus,James_Alphaeus,60,13,teams_meeting
+2025-10-06 08:00:00,Persecution Response Briefing — Jerusalem,Paul,120,6,teams_meeting
+2025-10-06 14:20:00,Scribal Workshop — Hierapolis,Caius,20,2,teams_call
+2025-10-06 19:30:00,Prayer Vigil — Hierapolis,Secundus,8,2,teams_chat
+2025-10-07 09:00:00,Vision Interpretation Session — Caesarea,John,75,4,teams_meeting
+2025-10-07 10:30:00,Scribal Workshop — Lystra,John,90,10,teams_meeting
+2025-10-07 10:45:00,Hospitality Network Coordination — Derbe,Aristarchus,10,4,teams_call
+2025-10-07 11:00:00,Letter Dictation — Lystra,Paul,45,6,teams_meeting
+2025-10-08 09:00:00,Council of Apostles — Malta,Peter,10,3,teams_call
+2025-10-08 19:45:00,Missionary Strategy Session — Antioch,Philip_Deacon,30,3,teams_meeting
+2025-10-10 08:00:00,Famine Relief Coordination — Rome,Patrobas,150,11,teams_meeting
+2025-10-10 09:00:00,Trial Preparation — Alexandria,John,10,3,teams_call
+2025-10-10 14:30:00,Famine Relief Coordination — Philippi,Tychicus,30,3,teams_call
+2025-10-11 14:00:00,Synagogue Outreach Planning — Colossae,Andrew,15,3,teams_call
+2025-10-11 16:45:00,Synagogue Outreach Planning — Caesarea,Caius,30,3,teams_call
+2025-10-12 10:00:00,Famine Relief Coordination — Miletus,Philip,75,6,teams_meeting
+2025-10-13 08:30:00,Prayer Vigil — Crete,Olympas,5,4,teams_chat
+2025-10-14 09:00:00,Famine Relief Coordination — Derbe,Prochorus,120,6,teams_meeting
+2025-10-14 11:20:00,Collection for the Saints — Cyprus,Paul,120,11,teams_meeting
+2025-10-14 14:20:00,Elders Meeting — Philippi,Matthias,60,5,teams_meeting
+2025-10-14 16:30:00,Baptism Service Coordination — Thessalonica,Simon_Zealot,90,10,teams_meeting
+2025-10-15 14:45:00,Trial Preparation — Samaria,Paul,150,9,teams_meeting
+2025-10-15 15:00:00,Shipwreck Recovery Briefing — Puteoli,Joseph_Barsabas,45,7,teams_meeting
+2025-10-17 11:00:00,Letter Dictation — Damascus,James_Zebedee,10,3,teams_chat
+2025-10-18 09:30:00,Missionary Strategy Session — Caesarea,Matthew,45,15,teams_meeting
+2025-10-18 15:30:00,Apostolic Letter Review — Colossae,Matthias,60,11,teams_meeting
+2025-10-19 13:00:00,Persecution Response Briefing — Cyprus,Paul,10,3,teams_call
+2025-10-20 08:00:00,Council of Apostles — Tarsus,James_Zebedee,10,3,teams_chat
+2025-10-21 14:00:00,Scribal Workshop — Philippi,Prochorus,90,13,teams_meeting
+2025-10-21 18:30:00,Famine Relief Coordination — Joppa,Philip_Deacon,75,6,teams_meeting
+2025-10-22 09:00:00,Deacon Selection — Colossae,Olympas,10,2,teams_call
+2025-10-22 10:15:00,Sabbath Teaching Plan — Laodicea,Bartholomew,60,6,teams_meeting
+2025-10-22 19:15:00,Gentile Mission Update — Iconium,Simon_Zealot,8,3,teams_chat
+2025-10-23 09:00:00,Shipwreck Recovery Briefing — Troas,Barnabas,75,7,teams_meeting
+2025-10-24 10:45:00,Gentile Mission Update — Perga,Paul,30,4,teams_call
+2025-10-25 09:00:00,Hospitality Network Coordination — Philadelphia,James_Zebedee,10,2,teams_chat
+2025-10-25 14:30:00,Apostolic Letter Review — Malta,Paul,45,12,teams_meeting
+2025-10-25 19:30:00,Healing Ministry Debrief — Laodicea,Simon_Zealot,60,11,teams_meeting
+2025-10-26 09:00:00,Famine Relief Coordination — Ephesus,Matthias,5,3,teams_chat
+2025-10-26 19:20:00,New Convert Catechesis — Jerusalem,Paul,30,2,teams_call
+2025-10-27 09:45:00,Breaking of Bread — Samaria,Joseph_Barsabas,75,9,teams_meeting
+2025-10-27 10:30:00,Letter Dictation — Derbe,Simon_Zealot,120,8,teams_meeting
+2025-10-27 11:20:00,Famine Relief Coordination — Puteoli,James_Alphaeus,45,5,teams_meeting
+2025-10-27 14:45:00,Hospitality Network Coordination — Smyrna,Phlegon,10,3,teams_chat
+2025-10-28 10:00:00,Shipwreck Recovery Briefing — Troas,Prochorus,45,8,teams_meeting
+2025-10-29 07:00:00,Hospitality Network Coordination — Galatia,Sosthenes,45,3,teams_call
+2025-10-29 09:00:00,Scribal Workshop — Colossae,Paul,30,6,teams_meeting
+2025-10-30 09:00:00,Doctrinal Council — Ephesus,Paul,75,4,teams_meeting
+2025-10-30 11:15:00,Vision Interpretation Session — Derbe,Paul,30,11,teams_meeting
+2025-10-30 18:45:00,Elders Meeting — Tarsus,Nicolas,90,8,teams_meeting
+2025-10-31 13:15:00,Church Planting Review — Puteoli,Thomas,2,4,teams_chat
+2025-10-31 14:15:00,Teaching Schedule Review — Athens,James_Alphaeus,10,3,teams_call
+2025-11-01 09:15:00,Council of Apostles — Miletus,Matthias,120,12,teams_meeting
+2025-11-01 14:00:00,Elders Meeting — Damascus,Sosthenes,20,2,teams_call
+2025-11-01 14:30:00,Trial Preparation — Troas,Thaddaeus,45,10,teams_meeting
+2025-11-02 08:00:00,Doctrinal Council — Puteoli,Bartholomew,90,4,teams_meeting
+2025-11-02 15:00:00,Gentile Mission Update — Perga,Paul,180,6,teams_meeting
+2025-11-03 07:30:00,Prayer Vigil — Rome,Timon,60,5,teams_meeting
+2025-11-03 13:00:00,Hospitality Network Coordination — Smyrna,Paul,60,6,teams_meeting
+2025-11-03 14:30:00,Teaching Schedule Review — Derbe,Philip_Deacon,60,6,teams_meeting
+2025-11-03 16:45:00,Church Planting Review — Puteoli,Paul,150,15,teams_meeting
+2025-11-04 08:30:00,Lord's Supper Preparation — Joppa,Paul,5,3,teams_chat
+2025-11-04 09:00:00,Farewell Address — Smyrna,Sopater,10,3,teams_chat
+2025-11-04 14:00:00,Trial Preparation — Derbe,Parmenas,60,15,teams_meeting
+2025-11-04 15:30:00,Scribal Workshop — Philippi,James_Zebedee,15,3,teams_call
+2025-11-04 16:15:00,Collection for the Saints — Iconium,Paul,5,3,teams_chat
+2025-11-04 19:30:00,Synagogue Outreach Planning — Galatia,John,120,6,teams_meeting
+2025-11-05 09:00:00,Elders Meeting — Lystra,Matthew,2,2,teams_chat
+2025-11-05 14:30:00,Sabbath Teaching Plan — Malta,Simon_Zealot,60,6,teams_meeting
+2025-11-05 16:20:00,Discipleship Training — Alexandria,Bartholomew,30,2,teams_call
+2025-11-06 08:00:00,Deacon Selection — Antioch,Gaius_Derbe,45,4,teams_meeting
+2025-11-06 14:30:00,Baptism Service Coordination — Laodicea,Matthew,10,2,teams_chat
+2025-11-08 08:30:00,Teaching Schedule Review — Corinth,Aristarchus,3,2,teams_chat
+2025-11-08 09:45:00,Discipleship Training — Pergamum,James_Alphaeus,60,4,teams_meeting
+2025-11-08 15:00:00,Teaching Schedule Review — Jerusalem,Epaphras,5,4,teams_chat
+2025-11-09 09:30:00,Healing Ministry Debrief — Cyprus,Paul,30,3,teams_call
+2025-11-09 11:20:00,Trial Preparation — Puteoli,Simon_Zealot,75,8,teams_meeting
+2025-11-10 09:15:00,Idol-Meat Controversy — Puteoli,Sopater,8,5,teams_chat
+2025-11-10 14:00:00,Elders Meeting — Ephesus,Matthias,45,3,teams_call
+2025-11-10 19:00:00,New Convert Catechesis — Samaria,Paul,180,4,teams_meeting
+2025-11-11 11:00:00,Persecution Response Briefing — Puteoli,Bartholomew,45,2,teams_call
+2025-11-11 19:00:00,Synagogue Outreach Planning — Caesarea,Peter,60,13,teams_meeting
+2025-11-11 19:00:00,Breaking of Bread — Colossae,Paul,8,3,teams_chat
+2025-11-12 14:00:00,Scribal Workshop — Puteoli,Epaphroditus,60,9,teams_meeting
+2025-11-12 14:15:00,Persecution Response Briefing — Rome,Apollos,45,3,teams_call
+2025-11-12 18:00:00,Letter Dictation — Cyprus,Joseph_Barsabas,150,5,teams_meeting
+2025-11-14 09:00:00,Persecution Response Briefing — Colossae,Tychicus,8,3,teams_chat
+2025-11-14 18:15:00,Deacon Selection — Ephesus,Peter,3,2,teams_chat
+2025-11-15 14:45:00,Doctrinal Council — Smyrna,Matthias,3,5,teams_chat
+2025-11-15 14:45:00,Sabbath Teaching Plan — Sardis,Prochorus,10,3,teams_chat
+2025-11-16 09:15:00,Famine Relief Coordination — Galatia,Asyncritus,60,14,teams_meeting
+2025-11-16 09:15:00,Vision Interpretation Session — Thessalonica,Andrew,8,3,teams_chat
+2025-11-16 10:00:00,Discipleship Training — Thyatira,Erastus,5,2,teams_chat
+2025-11-16 10:30:00,Teaching Schedule Review — Laodicea,Olympas,45,3,teams_call
+2025-11-18 08:20:00,Famine Relief Coordination — Perga,Aristarchus,180,4,teams_meeting
+2025-11-18 16:00:00,Elders Meeting — Alexandria,James_Zebedee,30,13,teams_meeting
+2025-11-19 10:45:00,Discipleship Training — Cyprus,Thaddaeus,2,4,teams_chat
+2025-11-19 13:00:00,Discipleship Training — Miletus,Crescens,45,8,teams_meeting
+2025-11-19 15:30:00,Apostolic Letter Review — Laodicea,Thaddaeus,5,3,teams_chat
+2025-11-19 19:20:00,Widow's Care Logistics — Athens,Philip,60,12,teams_meeting
+2025-11-20 16:45:00,Synagogue Outreach Planning — Crete,Prochorus,90,15,teams_meeting
+2025-11-21 08:00:00,Teaching Schedule Review — Berea,Paul,3,2,teams_chat
+2025-11-21 08:30:00,Deacon Selection — Patmos,Sosthenes,3,5,teams_chat
+2025-11-21 10:45:00,Synagogue Outreach Planning — Lystra,Onesiphorus,60,10,teams_meeting
+2025-11-21 14:15:00,Hospitality Network Coordination — Antioch,Peter,10,2,teams_call
+2025-11-22 09:00:00,Trial Preparation — Corinth,Rufus,75,8,teams_meeting
+2025-11-22 11:00:00,Teaching Schedule Review — Philadelphia,Thomas,10,2,teams_call
+2025-11-22 16:30:00,Sabbath Teaching Plan — Perga,Matthew,20,2,teams_call
+2025-11-23 09:00:00,Letter Dictation — Smyrna,Bartholomew,3,5,teams_chat
+2025-11-23 10:00:00,Letter Dictation — Jerusalem,Paul,90,8,teams_meeting
+2025-11-24 11:15:00,Baptism Service Coordination — Sardis,Bartholomew,45,5,teams_meeting
+2025-11-24 16:30:00,Scribal Workshop — Crete,Philip,120,6,teams_meeting
+2025-11-25 14:15:00,Baptism Service Coordination — Rome,Paul,150,4,teams_meeting
+2025-11-26 09:00:00,Baptism Service Coordination — Hierapolis,Philip,90,12,teams_meeting
+2025-11-27 09:00:00,Shipwreck Recovery Briefing — Tarsus,Tychicus,45,2,teams_call
+2025-11-27 11:30:00,Healing Ministry Debrief — Antioch,Onesimus,15,3,teams_call
+2025-11-27 16:30:00,Missionary Strategy Session — Hierapolis,Simon_Zealot,10,3,teams_call
+2025-11-27 19:00:00,Deacon Selection — Smyrna,Matthew,150,8,teams_meeting
+2025-11-28 14:00:00,Widow's Care Logistics — Cyprus,Quartus,60,4,teams_meeting
+2025-11-30 08:20:00,Missionary Strategy Session — Joppa,James_Alphaeus,150,10,teams_meeting
+2025-11-30 19:30:00,Trial Preparation — Derbe,Erastus,45,4,teams_call

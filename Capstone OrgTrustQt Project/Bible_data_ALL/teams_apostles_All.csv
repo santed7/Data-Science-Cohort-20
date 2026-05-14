@@ -1,0 +1,401 @@
+timestamp,subject,organizer,duration,participant_count,type
+2025-06-01 10:45:00,Judges Assembly — Shechem,Matthew,90,3,teams_meeting
+2025-06-02 14:00:00,Apostolic Letter Review — Tarsus,Uzziah,60,15,teams_meeting
+2025-06-02 14:15:00,Letter Dictation — Beersheba,Epaphroditus,10,3,teams_call
+2025-06-02 14:45:00,Battle Strategy Session — Lystra,Judah,60,4,teams_meeting
+2025-06-03 09:00:00,Discipleship Training — Nineveh,Mark,5,5,teams_chat
+2025-06-03 10:20:00,Priestly Rotation Review — Megiddo,Timothy,90,13,teams_meeting
+2025-06-03 10:45:00,Sacrifice Order Briefing — Alexandria,Peter,2,3,teams_chat
+2025-06-03 11:15:00,Sacrifice Order Briefing — Beersheba,Timothy,15,2,teams_call
+2025-06-04 14:30:00,Sanhedrin Hearing — Mount_Carmel,Matthias,10,3,teams_chat
+2025-06-05 07:45:00,Land Inheritance Meeting — Gilgal,Shem,120,12,teams_meeting
+2025-06-05 19:00:00,Passover Preparation — Nineveh,Jehu,45,13,teams_meeting
+2025-06-06 14:45:00,Tabernacle Service Coordination — Caesarea,Erastus,3,3,teams_chat
+2025-06-06 19:00:00,Breaking of Bread — Jericho,Ephraim,75,8,teams_meeting
+2025-06-07 15:30:00,Discipleship Training — Bethlehem,Anna,5,3,teams_chat
+2025-06-07 15:45:00,Vision Interpretation Session — Ephesus,Mark,60,5,teams_meeting
+2025-06-08 14:30:00,Widow's Care Logistics — Tarsus,Peter,10,3,teams_chat
+2025-06-09 09:00:00,Tabernacle Service Coordination — Tarsus,Mary,60,6,teams_meeting
+2025-06-09 10:45:00,Priestly Rotation Review — Samaria,Apollos,30,9,teams_meeting
+2025-06-09 14:30:00,Watchman Report — Pergamum,Peter,180,12,teams_meeting
+2025-06-09 18:00:00,Letter Dictation — Ramah,Barnabas,8,3,teams_chat
+2025-06-10 09:45:00,Collection for the Saints — Gilgal,Bathsheba,60,9,teams_meeting
+2025-06-10 15:45:00,Collection for the Saints — Derbe,Zechariah,8,3,teams_chat
+2025-06-10 19:30:00,Battle Strategy Session — Nazareth,Esther,2,4,teams_chat
+2025-06-11 09:45:00,Widow's Care Logistics — Capernaum,Onesiphorus,90,10,teams_meeting
+2025-06-11 16:45:00,Tabernacle Service Coordination — Corinth,Daniel,150,8,teams_meeting
+2025-06-12 07:00:00,Battle Strategy Session — Berea,Rehoboam,5,2,teams_chat
+2025-06-12 10:00:00,Watchman Report — Lystra,Barak,3,3,teams_chat
+2025-06-12 10:20:00,Prophetic Word Hearing — Damascus,David,15,3,teams_call
+2025-06-12 14:00:00,Farewell Address — Iconium,Bathsheba,60,13,teams_meeting
+2025-06-13 08:20:00,Judges Assembly — Nazareth,Jeremiah,90,10,teams_meeting
+2025-06-13 10:45:00,Judges Assembly — Thyatira,Samson,5,2,teams_chat
+2025-06-14 07:00:00,Discipleship Training — Tiberias,Anna,10,3,teams_call
+2025-06-14 08:20:00,Deacon Selection — Beersheba,Mark,60,16,teams_meeting
+2025-06-15 10:00:00,Vision Interpretation Session — Smyrna,Solomon,45,17,teams_meeting
+2025-06-16 08:30:00,Trial Preparation — Capernaum,Gaius_Derbe,30,2,teams_call
+2025-06-16 09:00:00,Doctrinal Council — Dan,Eleazar,45,9,teams_meeting
+2025-06-16 18:00:00,Deacon Selection — Sinai,Eli,150,17,teams_meeting
+2025-06-18 09:00:00,Elders Meeting — Susa,Onesimus,45,7,teams_meeting
+2025-06-18 10:00:00,Vision Interpretation Session — Alexandria,Adam,45,2,teams_call
+2025-06-18 10:30:00,Sanhedrin Hearing — Samaria,Daniel,15,3,teams_call
+2025-06-18 10:30:00,Doctrinal Council — Beersheba,Hosea,45,18,teams_meeting
+2025-06-18 15:30:00,Tribal Council — Joppa,Paul,10,5,teams_chat
+2025-06-19 09:30:00,Vision Interpretation Session — Shechem,Miriam,45,10,teams_meeting
+2025-06-19 14:30:00,Watchman Report — Bethlehem,Silas,90,11,teams_meeting
+2025-06-20 10:30:00,Church Planting Review — Pergamum,Zebulun,150,3,teams_meeting
+2025-06-20 14:30:00,Scribal Workshop — Rome,Zerubbabel,60,11,teams_meeting
+2025-06-21 10:30:00,Missionary Strategy Session — Philippi,Crescens,180,12,teams_meeting
+2025-06-21 11:20:00,Farewell Address — Berea,Huldah,75,14,teams_meeting
+2025-06-21 15:30:00,Council of Apostles — Bethel,Adam,10,4,teams_chat
+2025-06-22 07:15:00,Prayer Vigil — Ephesus,Jeremiah,10,2,teams_chat
+2025-06-22 13:00:00,Apostolic Letter Review — Jezreel,James_Alphaeus,45,3,teams_call
+2025-06-23 10:30:00,Tribal Council — Susa,Zechariah,30,2,teams_call
+2025-06-23 16:30:00,Discipleship Training — Mount_Horeb,Daniel_Friend_Meshach,120,3,teams_meeting
+2025-06-23 18:00:00,Land Inheritance Meeting — Babylon,Jezebel,45,3,teams_meeting
+2025-06-23 18:30:00,Trial Preparation — Sinai,Nehemiah,30,4,teams_call
+2025-06-24 15:15:00,Passover Preparation — Antioch,Achaicus,75,4,teams_meeting
+2025-06-25 09:45:00,Tribal Council — Antioch,John,180,7,teams_meeting
+2025-06-26 10:30:00,Sacrifice Order Briefing — Mount_Horeb,Luke,2,2,teams_chat
+2025-06-27 08:00:00,Census Review — Hebron,Luke,10,3,teams_chat
+2025-06-27 11:20:00,Scribal Workshop — Hierapolis,Abraham,30,2,teams_call
+2025-06-27 13:00:00,Deacon Selection — Troas,Solomon,120,18,teams_meeting
+2025-06-27 19:00:00,Deacon Selection — Troas,Paul,8,3,teams_chat
+2025-06-28 09:00:00,Scribal Workshop — Samaria,Job,150,4,teams_meeting
+2025-06-28 10:30:00,Letter Dictation — Bethsaida,Isaiah,180,8,teams_meeting
+2025-06-28 14:00:00,Discipleship Training — Jezreel,Tabitha,45,13,teams_meeting
+2025-06-29 15:00:00,Church Planting Review — Capernaum,Thaddaeus,90,11,teams_meeting
+2025-06-29 19:30:00,Sacrifice Order Briefing — Gilgal,Elisha,20,3,teams_call
+2025-06-30 09:00:00,Letter Dictation — Jericho,Jonathan,30,3,teams_call
+2025-06-30 11:00:00,Sacrifice Order Briefing — Babylon,John,3,4,teams_chat
+2025-06-30 14:30:00,Judges Assembly — Patmos,Barak,30,4,teams_call
+2025-07-01 08:20:00,Doctrinal Council — Smyrna,Philemon,20,4,teams_call
+2025-07-02 08:00:00,Synagogue Teaching Plan — Tiberias,Joseph_Barsabas,90,3,teams_meeting
+2025-07-02 09:00:00,Temple Service Planning — Smyrna,Jeremiah,180,17,teams_meeting
+2025-07-02 09:15:00,Royal Court Session — Patmos,Sosthenes,180,4,teams_meeting
+2025-07-02 10:15:00,Day of Atonement Briefing — Miletus,John_Baptist,75,19,teams_meeting
+2025-07-02 14:15:00,Missionary Strategy Session — Susa,Linus,30,3,teams_call
+2025-07-02 15:30:00,Census Review — Bethel,Stephanas,150,7,teams_meeting
+2025-07-03 09:45:00,Land Inheritance Meeting — Ramah,Daniel,20,3,teams_call
+2025-07-03 14:45:00,Vision Interpretation Session — Athens,Zipporah,75,7,teams_meeting
+2025-07-03 15:00:00,Priestly Rotation Review — Jericho,Barnabas,30,15,teams_meeting
+2025-07-03 19:30:00,Trial Preparation — Ephesus,Luke,45,11,teams_meeting
+2025-07-04 10:30:00,Battle Strategy Session — Athens,Ezra,30,3,teams_call
+2025-07-05 10:15:00,Temple Service Planning — Philadelphia,Timon,30,14,teams_meeting
+2025-07-05 11:00:00,Day of Atonement Briefing — Thessalonica,Luke,90,15,teams_meeting
+2025-07-05 19:00:00,Farewell Address — Alexandria,Daniel,5,3,teams_call
+2025-07-06 08:30:00,Battle Strategy Session — Sinai,Obadiah,8,3,teams_chat
+2025-07-07 07:00:00,Royal Court Session — Derbe,Parmenas,2,2,teams_chat
+2025-07-07 14:00:00,Temple Service Planning — Mizpah,Paul,45,12,teams_meeting
+2025-07-07 18:15:00,Collection for the Saints — Sardis,Moses,15,2,teams_call
+2025-07-09 08:15:00,Census Review — Rome,Simeon,150,3,teams_meeting
+2025-07-09 11:00:00,Priestly Rotation Review — Derbe,Isaac,2,4,teams_chat
+2025-07-10 07:00:00,Council of Apostles — Sinai,Secundus,30,4,teams_call
+2025-07-10 09:00:00,Census Review — Jerusalem,Linus,8,2,teams_chat
+2025-07-10 11:00:00,Scribal Workshop — Beersheba,Daniel,5,2,teams_chat
+2025-07-10 14:00:00,Trial Preparation — Susa,Daniel_Friend_Meshach,30,10,teams_meeting
+2025-07-11 07:20:00,Prophetic Word Hearing — Bethsaida,Mark,120,7,teams_meeting
+2025-07-11 10:30:00,Temple Service Planning — Caesarea,Jeremiah,5,2,teams_call
+2025-07-12 09:30:00,Royal Court Session — Haran,Naphtali,120,8,teams_meeting
+2025-07-13 08:00:00,Doctrinal Council — Pergamum,Nehemiah,180,19,teams_meeting
+2025-07-13 14:30:00,Famine Relief Coordination — Babylon,Elijah,30,13,teams_meeting
+2025-07-15 08:30:00,Tribal Council — Malta,Crescens,3,5,teams_chat
+2025-07-15 10:00:00,Covenant Renewal Ceremony — Jerusalem,Ezra,60,4,teams_meeting
+2025-07-15 10:15:00,Discipleship Training — Philadelphia,Jonah,5,2,teams_call
+2025-07-15 10:20:00,Judges Assembly — Tiberias,Uzziah,45,3,teams_meeting
+2025-07-15 11:00:00,Prophetic Word Hearing — Mizpah,Deborah,30,3,teams_call
+2025-07-15 14:20:00,Prophetic Word Hearing — Gilgal,Nehemiah,60,8,teams_meeting
+2025-07-16 14:00:00,Tribal Council — Nineveh,Isaiah,5,2,teams_chat
+2025-07-17 18:00:00,Letter Dictation — Jerusalem,Justus,60,6,teams_meeting
+2025-07-18 14:45:00,Baptism Service Coordination — Athens,Anna_Prophetess,8,4,teams_chat
+2025-07-20 08:45:00,Baptism Service Coordination — Lystra,Quartus,90,9,teams_meeting
+2025-07-21 10:00:00,Tribal Council — Lystra,Timothy,30,15,teams_meeting
+2025-07-21 13:45:00,Watchman Report — Hierapolis,John,150,5,teams_meeting
+2025-07-22 09:30:00,Prophetic Word Hearing — Joppa,Phinehas,60,6,teams_meeting
+2025-07-22 16:30:00,School of Prophets — Rome,Mark,20,4,teams_call
+2025-07-23 09:45:00,Tribal Council — Derbe,Simon_Zealot,30,18,teams_meeting
+2025-07-24 09:00:00,Watchman Report — Dan,Abraham,10,4,teams_chat
+2025-07-24 10:00:00,Census Review — Thessalonica,Joshua,5,2,teams_call
+2025-07-24 16:00:00,Royal Court Session — Caesarea,Elijah,60,9,teams_meeting
+2025-07-24 18:30:00,Vision Interpretation Session — Crete,Mark,8,2,teams_chat
+2025-07-25 14:00:00,Church Planting Review — Cyprus,Mark,60,12,teams_meeting
+2025-07-26 10:20:00,Deacon Selection — Hebron,Shem,150,11,teams_meeting
+2025-07-26 14:30:00,Missionary Strategy Session — Miletus,Rehoboam,150,5,teams_meeting
+2025-07-27 09:00:00,Passover Preparation — Gilgal,Seth,15,2,teams_call
+2025-07-27 11:30:00,Doctrinal Council — Thyatira,Agabus,60,10,teams_meeting
+2025-07-27 18:30:00,Sanhedrin Hearing — Alexandria,Gaius_Derbe,75,12,teams_meeting
+2025-07-27 19:00:00,Famine Relief Coordination — Iconium,Luke,75,12,teams_meeting
+2025-07-28 07:30:00,Prophetic Word Hearing — Megiddo,Phinehas,75,8,teams_meeting
+2025-07-28 09:45:00,Scribal Workshop — Gilgal,Ezra,5,5,teams_chat
+2025-07-28 18:00:00,Priestly Rotation Review — Cyprus,Zerubbabel,10,2,teams_chat
+2025-07-29 09:45:00,Church Planting Review — Shechem,Aristarchus,15,3,teams_call
+2025-07-29 10:15:00,Missionary Strategy Session — Hierapolis,Jacob,45,3,teams_call
+2025-07-29 13:30:00,Discipleship Training — Lystra,Gideon,120,19,teams_meeting
+2025-07-29 14:00:00,Council of Apostles — Philippi,Jeremiah,30,15,teams_meeting
+2025-07-30 18:20:00,Passover Preparation — Mizpah,Bathsheba,30,11,teams_meeting
+2025-07-31 09:30:00,Battle Strategy Session — Smyrna,Micah,90,20,teams_meeting
+2025-07-31 14:00:00,Prophetic Word Hearing — Smyrna,James_Alphaeus,10,2,teams_call
+2025-07-31 15:00:00,Prophetic Word Hearing — Athens,Daniel,150,4,teams_meeting
+2025-07-31 15:45:00,Scribal Workshop — Caesarea,Jephthah,20,2,teams_call
+2025-07-31 18:20:00,Watchman Report — Hierapolis,Jephthah,150,12,teams_meeting
+2025-08-01 07:00:00,Priestly Rotation Review — Philadelphia,Japheth,90,6,teams_meeting
+2025-08-01 19:20:00,Land Inheritance Meeting — Caesarea,John,60,7,teams_meeting
+2025-08-02 10:15:00,School of Prophets — Beersheba,Paul,90,6,teams_meeting
+2025-08-02 19:45:00,Sanhedrin Hearing — Nineveh,Obadiah,60,13,teams_meeting
+2025-08-03 08:20:00,Deacon Selection — Corinth,Silas,60,10,teams_meeting
+2025-08-03 10:00:00,Doctrinal Council — Hebron,Aaron,30,4,teams_call
+2025-08-03 11:45:00,Tribal Council — Tarsus,Timothy,5,3,teams_call
+2025-08-03 14:30:00,Priestly Rotation Review — Sardis,Peter,2,3,teams_chat
+2025-08-03 15:00:00,Apostolic Letter Review — Babylon,Paul,45,16,teams_meeting
+2025-08-03 18:15:00,Doctrinal Council — Cana,Dan,20,3,teams_call
+2025-08-04 10:15:00,Farewell Address — Jerusalem,Timothy,30,3,teams_call
+2025-08-04 11:00:00,Day of Atonement Briefing — Joppa,Jeremiah,60,5,teams_meeting
+2025-08-04 14:00:00,Royal Court Session — Patmos,Jonathan,45,9,teams_meeting
+2025-08-05 18:00:00,Trial Preparation — Jericho,Priscilla,60,9,teams_meeting
+2025-08-07 14:20:00,Passover Preparation — Samaria,Elijah,10,2,teams_chat
+2025-08-07 16:30:00,Watchman Report — Tarsus,Thomas,30,2,teams_call
+2025-08-08 15:00:00,Widow's Care Logistics — Philadelphia,Matthew,45,4,teams_meeting
+2025-08-08 16:30:00,Judges Assembly — Pergamum,Nicanor,45,10,teams_meeting
+2025-08-09 10:00:00,Tribal Council — Cana,Isaiah,3,5,teams_chat
+2025-08-10 11:30:00,Collection for the Saints — Haran,Hezekiah,150,9,teams_meeting
+2025-08-11 09:45:00,Priestly Rotation Review — Smyrna,Sarah,30,11,teams_meeting
+2025-08-11 15:20:00,Land Inheritance Meeting — Tiberias,Uzziah,3,2,teams_chat
+2025-08-11 16:20:00,Sanhedrin Hearing — Mizpah,Ham,45,14,teams_meeting
+2025-08-11 19:15:00,Farewell Address — Derbe,Prochorus,75,3,teams_meeting
+2025-08-12 09:00:00,Sanhedrin Hearing — Capernaum,Simon_Zealot,45,6,teams_meeting
+2025-08-12 15:00:00,Sanhedrin Hearing — Nineveh,Lucius,45,16,teams_meeting
+2025-08-12 15:30:00,Baptism Service Coordination — Bethlehem,Naphtali,90,11,teams_meeting
+2025-08-13 08:30:00,Council of Apostles — Dan,Apollos,120,11,teams_meeting
+2025-08-13 11:00:00,Temple Service Planning — Athens,Solomon,5,2,teams_call
+2025-08-13 13:20:00,Land Inheritance Meeting — Gilgal,Adam,10,3,teams_chat
+2025-08-14 15:45:00,Battle Strategy Session — Megiddo,Paul,2,3,teams_chat
+2025-08-15 10:15:00,Royal Court Session — Ephesus,Esther,90,16,teams_meeting
+2025-08-15 14:30:00,Synagogue Teaching Plan — Mizpah,Zedekiah,45,3,teams_meeting
+2025-08-15 16:30:00,Temple Service Planning — Philippi,Japheth,10,4,teams_call
+2025-08-16 08:00:00,Deacon Selection — Tiberias,Dan,3,4,teams_chat
+2025-08-16 10:00:00,Breaking of Bread — Lystra,Jeremiah,45,16,teams_meeting
+2025-08-17 07:00:00,Covenant Renewal Ceremony — Beersheba,Luke,60,3,teams_meeting
+2025-08-17 08:20:00,Land Inheritance Meeting — Megiddo,Joseph_OT,8,4,teams_chat
+2025-08-17 10:00:00,Vision Interpretation Session — Bethel,James_Alphaeus,10,3,teams_call
+2025-08-18 08:30:00,Feast of Tabernacles Planning — Samaria,Junia,60,9,teams_meeting
+2025-08-18 08:45:00,Synagogue Teaching Plan — Tarsus,Priscilla,90,17,teams_meeting
+2025-08-18 09:20:00,Elders Meeting — Hebron,Ephraim,90,14,teams_meeting
+2025-08-18 15:00:00,Letter Dictation — Berea,Daniel_Friend_Meshach,180,10,teams_meeting
+2025-08-19 15:30:00,Feast of Tabernacles Planning — Corinth,Gad_Prophet,60,20,teams_meeting
+2025-08-20 13:30:00,Council of Apostles — Lystra,John,120,12,teams_meeting
+2025-08-21 09:00:00,Watchman Report — Beersheba,Bathsheba,120,9,teams_meeting
+2025-08-22 09:20:00,Day of Atonement Briefing — Damascus,Shamgar,90,16,teams_meeting
+2025-08-23 09:00:00,Royal Court Session — Susa,James_Zebedee,45,3,teams_call
+2025-08-23 10:45:00,Missionary Strategy Session — Dan,Secundus,120,7,teams_meeting
+2025-08-23 10:45:00,Breaking of Bread — Pergamum,Eutychus,180,6,teams_meeting
+2025-08-24 14:00:00,Watchman Report — Nazareth,Paul,180,5,teams_meeting
+2025-08-25 08:45:00,Doctrinal Council — Hebron,Esther,5,2,teams_call
+2025-08-26 09:00:00,Royal Court Session — Rome,Erastus,90,18,teams_meeting
+2025-08-27 07:20:00,Royal Court Session — Jerusalem,Jethro,45,3,teams_meeting
+2025-08-27 09:15:00,Judges Assembly — Miletus,Paul,10,2,teams_call
+2025-08-28 13:30:00,Letter Dictation — Rome,Aaron,150,13,teams_meeting
+2025-08-28 16:45:00,Tribal Council — Sinai,Prochorus,5,4,teams_chat
+2025-08-28 19:30:00,Discipleship Training — Bethsaida,Quartus,30,12,teams_meeting
+2025-08-29 09:20:00,Discipleship Training — Smyrna,Omri,75,6,teams_meeting
+2025-08-29 09:45:00,Tribal Council — Susa,Japheth,20,4,teams_call
+2025-08-29 18:45:00,Famine Relief Coordination — Sinai,Aaron,90,3,teams_meeting
+2025-08-29 19:45:00,Tribal Council — Corinth,Solomon,120,18,teams_meeting
+2025-08-30 14:30:00,Farewell Address — Shiloh,Nymphas,3,3,teams_chat
+2025-08-31 09:00:00,School of Prophets — Iconium,Demas,90,9,teams_meeting
+2025-08-31 10:15:00,Scribal Workshop — Mizpah,Aaron,180,13,teams_meeting
+2025-08-31 14:30:00,Famine Relief Coordination — Bethlehem,Nehemiah,180,14,teams_meeting
+2025-09-01 07:00:00,Famine Relief Coordination — Bethsaida,Manasseh_King,10,4,teams_chat
+2025-09-01 08:20:00,Temple Service Planning — Rome,Crispus,30,18,teams_meeting
+2025-09-01 09:15:00,Doctrinal Council — Gilgal,Paul,150,7,teams_meeting
+2025-09-01 10:00:00,Breaking of Bread — Tarsus,Paul,30,7,teams_meeting
+2025-09-02 14:30:00,Council of Apostles — Mizpah,Ephraim,45,19,teams_meeting
+2025-09-03 09:00:00,Sacrifice Order Briefing — Miletus,Tychicus,3,4,teams_chat
+2025-09-05 18:30:00,Famine Relief Coordination — Hebron,Zechariah,60,6,teams_meeting
+2025-09-06 08:00:00,Missionary Strategy Session — Mount_Horeb,Uzziah,120,16,teams_meeting
+2025-09-06 11:30:00,Letter Dictation — Corinth,Joshua,30,18,teams_meeting
+2025-09-06 19:30:00,Breaking of Bread — Bethlehem,David,45,9,teams_meeting
+2025-09-07 07:45:00,Battle Strategy Session — Joppa,Daniel_Friend_Meshach,90,19,teams_meeting
+2025-09-09 08:00:00,Farewell Address — Ramah,Paul,45,9,teams_meeting
+2025-09-09 09:00:00,Prayer Vigil — Babylon,Moses,90,3,teams_meeting
+2025-09-09 14:30:00,Deacon Selection — Damascus,Gad,150,13,teams_meeting
+2025-09-10 13:30:00,Farewell Address — Damascus,Thomas,8,3,teams_chat
+2025-09-11 08:00:00,Battle Strategy Session — Megiddo,Deborah,20,3,teams_call
+2025-09-11 10:00:00,Priestly Rotation Review — Ephesus,Ezra,90,20,teams_meeting
+2025-09-11 13:00:00,Elders Meeting — Shiloh,Levi,5,3,teams_call
+2025-09-12 08:30:00,Vision Interpretation Session — Philadelphia,Silas,3,5,teams_chat
+2025-09-13 08:20:00,Discipleship Training — Jerusalem,Simeon_Temple,150,19,teams_meeting
+2025-09-13 15:00:00,Breaking of Bread — Philippi,James_Alphaeus,5,2,teams_call
+2025-09-14 13:00:00,Tabernacle Service Coordination — Caesarea,Jephthah,120,10,teams_meeting
+2025-09-14 16:15:00,Prophetic Word Hearing — Rome,Silas,5,2,teams_call
+2025-09-15 09:45:00,Priestly Rotation Review — Nazareth,Chloe,180,16,teams_meeting
+2025-09-15 18:00:00,Farewell Address — Iconium,Anna_Prophetess,90,16,teams_meeting
+2025-09-16 13:00:00,Sanhedrin Hearing — Hierapolis,John_Baptist,90,9,teams_meeting
+2025-09-16 14:30:00,Scribal Workshop — Ramah,Jephthah,75,4,teams_meeting
+2025-09-16 15:30:00,Census Review — Patmos,Paul,8,3,teams_chat
+2025-09-17 09:45:00,Discipleship Training — Susa,John,5,2,teams_chat
+2025-09-17 14:45:00,Passover Preparation — Derbe,Rebekah,15,2,teams_call
+2025-09-17 16:30:00,Temple Service Planning — Pergamum,Sosthenes,180,5,teams_meeting
+2025-09-18 07:00:00,Trial Preparation — Jezreel,Silas,75,8,teams_meeting
+2025-09-18 10:15:00,School of Prophets — Shechem,Paul,120,5,teams_meeting
+2025-09-19 09:30:00,Deacon Selection — Susa,Zenas,10,4,teams_chat
+2025-09-19 19:30:00,Temple Service Planning — Cyprus,Gad,90,3,teams_meeting
+2025-09-20 08:30:00,Sacrifice Order Briefing — Megiddo,Timothy,180,7,teams_meeting
+2025-09-20 09:00:00,Baptism Service Coordination — Malta,Gad_Prophet,3,2,teams_chat
+2025-09-20 10:00:00,Sanhedrin Hearing — Shechem,Achaicus,30,7,teams_meeting
+2025-09-20 10:45:00,Sacrifice Order Briefing — Babylon,Luke,2,4,teams_chat
+2025-09-21 09:00:00,Breaking of Bread — Jericho,Cornelius,75,16,teams_meeting
+2025-09-21 09:20:00,Missionary Strategy Session — Mount_Carmel,John,180,17,teams_meeting
+2025-09-21 15:15:00,Council of Apostles — Bethel,Cleopas,90,18,teams_meeting
+2025-09-23 08:20:00,Day of Atonement Briefing — Nazareth,James_Alphaeus,60,18,teams_meeting
+2025-09-24 13:00:00,Letter Dictation — Derbe,Ezra,30,13,teams_meeting
+2025-09-25 07:20:00,Feast of Tabernacles Planning — Sinai,Joshua,20,3,teams_call
+2025-09-25 10:00:00,Elders Meeting — Philippi,Daniel_Friend_Shadrach,90,16,teams_meeting
+2025-09-26 10:15:00,Covenant Renewal Ceremony — Samaria,Nymphas,90,7,teams_meeting
+2025-09-27 08:20:00,Baptism Service Coordination — Malta,Ezra,150,3,teams_meeting
+2025-09-27 10:15:00,Council of Apostles — Nazareth,Barnabas,90,17,teams_meeting
+2025-09-27 10:20:00,Church Planting Review — Capernaum,Quartus,45,7,teams_meeting
+2025-09-27 16:00:00,Prophetic Word Hearing — Hebron,Junia,60,16,teams_meeting
+2025-09-28 08:00:00,Baptism Service Coordination — Antioch,Jephthah,5,2,teams_call
+2025-09-28 15:30:00,Covenant Renewal Ceremony — Rome,Jehu,90,6,teams_meeting
+2025-09-28 16:30:00,Apostolic Letter Review — Capernaum,Luke,30,20,teams_meeting
+2025-09-28 18:15:00,Prophetic Word Hearing — Sinai,Isaiah,30,3,teams_call
+2025-09-30 09:00:00,Vision Interpretation Session — Nazareth,Paul,45,4,teams_meeting
+2025-09-30 10:20:00,Farewell Address — Beersheba,Caius,45,8,teams_meeting
+2025-10-01 07:30:00,Discipleship Training — Pergamum,Mark,90,14,teams_meeting
+2025-10-01 10:00:00,Battle Strategy Session — Bethlehem,Manasseh,5,2,teams_call
+2025-10-02 10:15:00,Missionary Strategy Session — Thyatira,Elijah,10,4,teams_chat
+2025-10-02 15:00:00,Trial Preparation — Babylon,Dan,120,7,teams_meeting
+2025-10-03 13:15:00,Deacon Selection — Miletus,Chloe,30,10,teams_meeting
+2025-10-03 14:30:00,Letter Dictation — Troas,Aaron,2,2,teams_chat
+2025-10-03 18:20:00,Apostolic Letter Review — Smyrna,Lucius,45,11,teams_meeting
+2025-10-04 08:00:00,Deacon Selection — Haran,Junia,45,4,teams_meeting
+2025-10-04 10:45:00,Scribal Workshop — Beersheba,Ezra,45,4,teams_meeting
+2025-10-04 11:15:00,Land Inheritance Meeting — Mizpah,Micah,180,6,teams_meeting
+2025-10-06 09:00:00,Land Inheritance Meeting — Iconium,Nicolas,150,5,teams_meeting
+2025-10-06 09:30:00,Day of Atonement Briefing — Capernaum,Rufus,90,19,teams_meeting
+2025-10-06 10:30:00,Elders Meeting — Bethsaida,Bathsheba,150,11,teams_meeting
+2025-10-06 13:15:00,Trial Preparation — Mizpah,Stephen,10,3,teams_chat
+2025-10-06 15:45:00,Royal Court Session — Smyrna,Job,150,8,teams_meeting
+2025-10-07 09:00:00,Apostolic Letter Review — Smyrna,Timothy,30,19,teams_meeting
+2025-10-07 10:30:00,Church Planting Review — Thyatira,Asa,90,18,teams_meeting
+2025-10-07 14:00:00,Covenant Renewal Ceremony — Derbe,Elisha,5,3,teams_chat
+2025-10-08 10:45:00,Sanhedrin Hearing — Nazareth,Lucius,180,4,teams_meeting
+2025-10-08 14:00:00,Synagogue Teaching Plan — Haran,Peter,75,19,teams_meeting
+2025-10-09 10:15:00,Land Inheritance Meeting — Shechem,Mark,8,5,teams_chat
+2025-10-09 10:30:00,Prophetic Word Hearing — Philadelphia,John_Baptist,180,16,teams_meeting
+2025-10-09 13:00:00,Vision Interpretation Session — Antioch,Demetrius,2,3,teams_chat
+2025-10-10 15:00:00,Prayer Vigil — Ur,Elisha,120,12,teams_meeting
+2025-10-10 19:00:00,Farewell Address — Malta,Dan,5,4,teams_chat
+2025-10-12 14:00:00,Land Inheritance Meeting — Lystra,Daniel,150,13,teams_meeting
+2025-10-12 14:00:00,Sacrifice Order Briefing — Malta,Jeroboam,10,4,teams_call
+2025-10-12 18:30:00,Synagogue Teaching Plan — Samaria,Parmenas,30,5,teams_meeting
+2025-10-12 19:30:00,Sanhedrin Hearing — Joppa,Nathan,10,2,teams_chat
+2025-10-13 09:30:00,Breaking of Bread — Tiberias,Josiah,90,7,teams_meeting
+2025-10-13 13:30:00,Missionary Strategy Session — Athens,Luke,120,14,teams_meeting
+2025-10-14 10:00:00,Letter Dictation — Jericho,Paul,8,5,teams_chat
+2025-10-14 11:20:00,Royal Court Session — Babylon,Eli,120,20,teams_meeting
+2025-10-16 10:20:00,Deacon Selection — Mount_Horeb,Ezra,45,3,teams_meeting
+2025-10-16 13:15:00,Watchman Report — Ur,Esau,45,9,teams_meeting
+2025-10-16 14:00:00,Widow's Care Logistics — Berea,Othniel,180,19,teams_meeting
+2025-10-16 18:30:00,Church Planting Review — Babylon,Boaz,45,4,teams_call
+2025-10-17 09:30:00,Widow's Care Logistics — Philippi,Isaiah,30,3,teams_call
+2025-10-17 09:30:00,Farewell Address — Caesarea,Gideon,90,17,teams_meeting
+2025-10-17 11:30:00,Discipleship Training — Nazareth,Jeremiah,90,12,teams_meeting
+2025-10-19 08:30:00,Trial Preparation — Hebron,Elisha,10,4,teams_call
+2025-10-19 09:00:00,Battle Strategy Session — Susa,Joseph_OT,20,3,teams_call
+2025-10-19 11:15:00,Apostolic Letter Review — Philippi,Ezra,180,7,teams_meeting
+2025-10-19 14:45:00,Scribal Workshop — Babylon,Asher,180,8,teams_meeting
+2025-10-20 08:45:00,Trial Preparation — Nazareth,Jehoshaphat,30,5,teams_meeting
+2025-10-20 11:00:00,Widow's Care Logistics — Troas,Malachi,150,12,teams_meeting
+2025-10-21 08:00:00,Widow's Care Logistics — Nineveh,Joseph_OT,150,8,teams_meeting
+2025-10-21 08:30:00,Widow's Care Logistics — Pergamum,Gad_Prophet,180,6,teams_meeting
+2025-10-21 09:00:00,Apostolic Letter Review — Nineveh,Epaphras,60,5,teams_meeting
+2025-10-23 09:20:00,Sanhedrin Hearing — Damascus,Boaz,30,9,teams_meeting
+2025-10-24 09:30:00,Deacon Selection — Cyprus,Peter,3,2,teams_chat
+2025-10-24 10:00:00,Prophetic Word Hearing — Antioch,Isaiah,30,10,teams_meeting
+2025-10-24 10:45:00,Passover Preparation — Crete,Matthias,15,2,teams_call
+2025-10-24 15:20:00,Temple Service Planning — Miletus,Paul,45,10,teams_meeting
+2025-10-25 08:30:00,Baptism Service Coordination — Sardis,David,45,4,teams_call
+2025-10-25 19:00:00,Discipleship Training — Shiloh,Aaron,150,10,teams_meeting
+2025-10-26 08:00:00,Prayer Vigil — Mount_Carmel,Bathsheba,150,12,teams_meeting
+2025-10-26 10:00:00,Breaking of Bread — Philadelphia,Timothy,90,18,teams_meeting
+2025-10-26 10:00:00,Discipleship Training — Nineveh,Linus,60,6,teams_meeting
+2025-10-27 09:45:00,Passover Preparation — Philippi,Aaron,120,9,teams_meeting
+2025-10-27 10:30:00,Land Inheritance Meeting — Mount_Carmel,Anna_Prophetess,60,14,teams_meeting
+2025-10-28 07:00:00,Church Planting Review — Cyprus,Chloe,120,3,teams_meeting
+2025-10-28 10:30:00,Trial Preparation — Ephesus,Samuel,180,10,teams_meeting
+2025-10-28 13:00:00,Baptism Service Coordination — Mount_Carmel,Daniel,60,9,teams_meeting
+2025-10-28 16:30:00,Doctrinal Council — Iconium,Shamgar,30,4,teams_call
+2025-10-29 08:15:00,Famine Relief Coordination — Ramah,Jephthah,15,2,teams_call
+2025-10-29 09:45:00,Tribal Council — Tiberias,Mary,10,3,teams_chat
+2025-10-29 13:45:00,Letter Dictation — Pergamum,Nymphas,180,13,teams_meeting
+2025-10-29 15:00:00,Watchman Report — Hierapolis,Bartholomew,180,8,teams_meeting
+2025-10-29 18:15:00,Tabernacle Service Coordination — Crete,Boaz,45,19,teams_meeting
+2025-10-29 18:45:00,Covenant Renewal Ceremony — Berea,Timothy,45,15,teams_meeting
+2025-10-30 08:30:00,Church Planting Review — Nazareth,Aaron,60,8,teams_meeting
+2025-10-30 08:45:00,Land Inheritance Meeting — Nineveh,Aquila,5,3,teams_call
+2025-10-30 09:30:00,Missionary Strategy Session — Bethsaida,David,90,9,teams_meeting
+2025-10-30 11:15:00,Collection for the Saints — Mount_Carmel,Erastus,90,18,teams_meeting
+2025-10-30 15:00:00,Covenant Renewal Ceremony — Alexandria,Aaron,10,3,teams_call
+2025-10-31 16:30:00,Royal Court Session — Corinth,Gad_Prophet,5,4,teams_call
+2025-10-31 19:00:00,Council of Apostles — Mount_Horeb,Silas,60,14,teams_meeting
+2025-11-01 14:45:00,Covenant Renewal Ceremony — Caesarea,Caleb,60,18,teams_meeting
+2025-11-02 19:00:00,Judges Assembly — Joppa,Timothy,45,19,teams_meeting
+2025-11-02 19:30:00,Council of Apostles — Bethlehem,Archippus,120,8,teams_meeting
+2025-11-03 14:00:00,School of Prophets — Mizpah,Joseph_OT,75,20,teams_meeting
+2025-11-03 16:30:00,Church Planting Review — Bethel,Eutychus,150,9,teams_meeting
+2025-11-04 08:00:00,Apostolic Letter Review — Damascus,Gideon,60,14,teams_meeting
+2025-11-04 11:20:00,Baptism Service Coordination — Iconium,Jeremiah,60,13,teams_meeting
+2025-11-04 16:15:00,Royal Court Session — Susa,Isaiah,5,3,teams_chat
+2025-11-05 07:20:00,Sacrifice Order Briefing — Caesarea,Zedekiah,60,11,teams_meeting
+2025-11-05 08:20:00,Breaking of Bread — Alexandria,Joseph_OT,5,2,teams_chat
+2025-11-05 10:00:00,Apostolic Letter Review — Bethel,Othniel,8,2,teams_chat
+2025-11-08 08:15:00,Missionary Strategy Session — Philadelphia,Hosea,60,14,teams_meeting
+2025-11-08 08:30:00,Prayer Vigil — Shiloh,Zebulun,90,4,teams_meeting
+2025-11-08 09:20:00,Priestly Rotation Review — Susa,Barak,75,20,teams_meeting
+2025-11-09 09:15:00,Church Planting Review — Nineveh,Mark,2,5,teams_chat
+2025-11-10 13:00:00,Trial Preparation — Jerusalem,Eli,60,20,teams_meeting
+2025-11-10 15:45:00,Collection for the Saints — Thyatira,Zechariah,180,4,teams_meeting
+2025-11-10 19:00:00,Prayer Vigil — Sinai,Bezaleel,5,3,teams_call
+2025-11-10 19:00:00,Deacon Selection — Berea,Manaen,90,8,teams_meeting
+2025-11-11 09:30:00,Watchman Report — Bethlehem,Timothy,15,2,teams_call
+2025-11-11 19:00:00,Elders Meeting — Hebron,Seth,60,18,teams_meeting
+2025-11-12 09:00:00,Vision Interpretation Session — Bethsaida,Silas,8,2,teams_chat
+2025-11-12 18:30:00,Widow's Care Logistics — Philippi,Aaron,5,2,teams_call
+2025-11-13 08:00:00,Missionary Strategy Session — Athens,James_Zebedee,5,3,teams_call
+2025-11-13 13:30:00,Missionary Strategy Session — Thyatira,Peter,5,2,teams_call
+2025-11-13 18:00:00,Priestly Rotation Review — Beersheba,Parmenas,180,18,teams_meeting
+2025-11-13 19:45:00,Census Review — Tarsus,Bezaleel,15,2,teams_call
+2025-11-14 08:20:00,Sacrifice Order Briefing — Nineveh,Issachar,45,8,teams_meeting
+2025-11-15 11:45:00,Sacrifice Order Briefing — Ephesus,Timothy,2,2,teams_chat
+2025-11-16 10:30:00,Prayer Vigil — Jezreel,Jason,5,3,teams_call
+2025-11-17 08:45:00,Discipleship Training — Troas,Joshua,20,2,teams_call
+2025-11-17 10:00:00,Baptism Service Coordination — Babylon,Cornelius,75,5,teams_meeting
+2025-11-17 10:30:00,Letter Dictation — Jezreel,Obadiah,60,13,teams_meeting
+2025-11-17 18:15:00,Elders Meeting — Troas,Paul,10,2,teams_call
+2025-11-18 16:00:00,Prophetic Word Hearing — Ephesus,Esau,30,4,teams_meeting
+2025-11-18 16:20:00,Famine Relief Coordination — Nazareth,Barnabas,60,15,teams_meeting
+2025-11-19 13:00:00,School of Prophets — Tarsus,Samson,15,2,teams_call
+2025-11-19 18:00:00,Missionary Strategy Session — Megiddo,Zephaniah,5,2,teams_call
+2025-11-20 09:30:00,Discipleship Training — Caesarea,Daniel_Friend_Shadrach,75,3,teams_meeting
+2025-11-20 16:45:00,Priestly Rotation Review — Bethel,Cleopas,5,4,teams_call
+2025-11-21 08:30:00,Synagogue Teaching Plan — Rome,Ezra,10,2,teams_call
+2025-11-21 09:15:00,Prayer Vigil — Crete,Seth,30,10,teams_meeting
+2025-11-21 10:15:00,Sanhedrin Hearing — Megiddo,Samson,120,9,teams_meeting
+2025-11-21 16:00:00,Prayer Vigil — Antioch,Nehemiah,90,15,teams_meeting
+2025-11-22 11:00:00,Widow's Care Logistics — Thyatira,Paul,120,10,teams_meeting
+2025-11-22 11:30:00,Tribal Council — Philadelphia,Hezekiah,3,3,teams_chat
+2025-11-22 14:00:00,Sanhedrin Hearing — Nineveh,Priscilla,90,6,teams_meeting
+2025-11-23 14:30:00,Elders Meeting — Hierapolis,Elijah,20,3,teams_call
+2025-11-25 07:30:00,Letter Dictation — Thessalonica,Jeremiah,60,18,teams_meeting
+2025-11-25 09:45:00,Land Inheritance Meeting — Mount_Horeb,Cleopas,10,3,teams_call
+2025-11-25 10:45:00,Royal Court Session — Nineveh,Seth,45,6,teams_meeting
+2025-11-25 14:30:00,Land Inheritance Meeting — Dan,Leah,60,3,teams_meeting
+2025-11-26 09:00:00,Deacon Selection — Bethel,Archippus,60,14,teams_meeting
+2025-11-26 14:30:00,School of Prophets — Rome,Stephanas,45,11,teams_meeting
+2025-11-27 10:30:00,Elders Meeting — Iconium,Isaiah,2,4,teams_chat
+2025-11-28 08:20:00,Missionary Strategy Session — Thessalonica,Paul,120,13,teams_meeting
+2025-11-28 09:20:00,Church Planting Review — Ur,Rehoboam,90,3,teams_meeting
+2025-11-28 09:45:00,Vision Interpretation Session — Antioch,Ezra,90,3,teams_meeting
+2025-11-28 09:45:00,Famine Relief Coordination — Ephesus,Solomon,10,2,teams_chat
+2025-11-28 18:30:00,Missionary Strategy Session — Cyprus,Paul,5,2,teams_call
