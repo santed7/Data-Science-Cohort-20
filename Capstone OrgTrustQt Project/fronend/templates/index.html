@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTQ CSV Upload & Prediction</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #eef3fa;
+            --surface: #ffffff;
+            --surface-strong: #f8fbff;
+            --text: #122139;
+            --muted: #556680;
+            --primary: #3366ff;
+            --primary-strong: #2749c8;
+            --success: #1c7f4c;
+            --danger: #b02a23;
+            --border: rgba(26, 41, 64, 0.08);
+            --shadow: 0 18px 45px rgba(17, 32, 76, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            background: radial-gradient(circle at top left, rgba(51, 102, 255, 0.18), transparent 32%),
+                        radial-gradient(circle at bottom right, rgba(0, 160, 232, 0.14), transparent 30%),
+                        var(--bg);
+            color: var(--text);
+        }
+
+        .page {
+            width: min(1140px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 32px 0 64px;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.2rem, 2.5vw, 3rem);
+            line-height: 1.05;
+        }
+
+        p {
+            margin: 0;
+            max-width: 760px;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+        }
+
+        .form-block {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        input[type=file] {
+            width: 100%;
+            border-radius: 14px;
+            padding: 16px 18px;
+            border: 1px solid rgba(51, 102, 255, 0.15);
+            background: rgba(51, 102, 255, 0.04);
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 24px;
+            border: none;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 16px 30px rgba(51, 102, 255, 0.18);
+        }
+
+        .info-box {
+            border-radius: 18px;
+            padding: 18px 22px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .muted {
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .error {
+            background: #fff3f2;
+            border-color: rgba(176, 42, 35, 0.24);
+            color: var(--danger);
+        }
+
+        .success {
+            background: #effaf1;
+            border-color: rgba(28, 127, 76, 0.2);
+            color: var(--success);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .summary-card {
+            background: var(--surface-strong);
+            border: 1px solid rgba(51, 102, 255, 0.08);
+            border-radius: 20px;
+            padding: 20px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .summary-card strong {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .summary-card div {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+            background: transparent;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(17, 32, 76, 0.08);
+        }
+
+        th {
+            background: rgba(243, 246, 252, 0.95);
+            font-weight: 700;
+            color: var(--muted);
+        }
+
+        tr:hover td {
+            background: rgba(51, 102, 255, 0.04);
+        }
+
+        h2 {
+            margin-top: 34px;
+            margin-bottom: 14px;
+            color: var(--text);
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 700px) {
+            .page { padding: 20px 0 40px; }
+            .card { padding: 22px; }
+            input[type=file] { padding: 14px 16px; }
+            button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <h1>OTQ CSV Upload & Prediction</h1>
+            <p>Upload your communication CSV file(s) and the app will run the OTQ v9 pipeline to train a model and show predicted response-time results.</p>
+        </header>
+
+        <div class="card">
+            {% if error %}
+                <div class="info-box error">
+                    <strong>Error</strong>
+                    <span>{{ error }}</span>
+                </div>
+            {% endif %}
+
+            <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data" class="form-block">
+                <label for="files">Select one or more CSV files</label>
+                <input type="file" id="files" name="files" accept=".csv" multiple required />
+                <div class="cta-row">
+                    <span class="muted">Upload CSVs from Slack, Teams, or Outlook.</span>
+                    <button type="submit">Upload and Predict</button>
+                </div>
+            </form>
+
+            {% if result %}
+                <div class="info-box success">
+                    <strong>Prediction completed</strong>
+                    <span>The model trained on uploaded data and generated predicted OTQ outcomes.</span>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card"><strong>Event rows</strong><div>{{ result.event_rows }}</div></div>
+                    <div class="summary-card"><strong>Daily rows</strong><div>{{ result.daily_rows }}</div></div>
+                    <div class="summary-card"><strong>Outcome rows</strong><div>{{ result.outcome_rows }}</div></div>
+                    <div class="summary-card"><strong>Model rows</strong><div>{{ result.model_rows }}</div></div>
+                </div>
+
+                {% if result.plots %}
+                    <h2>Plots</h2>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;align-items:start;">
+                        {% for p in result.plots %}
+                            {% if p.title == 'plots_error' %}
+                                <div class="info-box error"><strong>Plot error</strong><span>{{ p.data }}</span></div>
+                            {% else %}
+                                <figure style="margin:0;background:var(--surface-strong);padding:12px;border-radius:12px;border:1px solid rgba(17,32,76,0.04);">
+                                    <figcaption style="font-weight:700;margin-bottom:8px;color:var(--muted);">{{ p.title }}</figcaption>
+                                    <img alt="{{ p.title }}" src="data:image/png;base64,{{ p.data }}" style="width:100%;height:auto;border-radius:8px;display:block;" />
+                                </figure>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <h2>Uploaded file counts</h2>
+                <table>
+                    <thead><tr><th>Filename</th><th>Parsed rows</th></tr></thead>
+                    <tbody>
+                        {% for filename, count in result.file_counts.items() %}
+                            <tr><td>{{ filename }}</td><td>{{ count }}</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <h2>Model metrics</h2>
+                <table>
+                    <tbody>
+                        <tr><th>Train R²</th><td>{{ result.metrics.train_r2 | round(3) }}</td></tr>
+                        <tr><th>Test R²</th><td>{{ result.metrics.test_r2 | round(3) }}</td></tr>
+                        <tr><th>Test MAE</th><td>{{ result.metrics.test_mae | round(2) }} minutes</td></tr>
+                        <tr><th>Training samples</th><td>{{ result.metrics.samples }}</td></tr>
+                    </tbody>
+                </table>
+
+                <h2>Feature coefficients</h2>
+                <table>
+                    <thead><tr><th>Feature</th><th>Coefficient</th></tr></thead>
+                    <tbody>
+                        {% for coef in result.coefficients %}
+                            <tr><td>{{ coef.feature }}</td><td>{{ coef.coefficient | round(4) }}</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <h2>Recent predicted rows</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Total events</th>
+                            <th>Total EU</th>
+                            <th>Avg participants</th>
+                            <th>Avg duration</th>
+                            <th>Actual median response</th>
+                            <th>Predicted response</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in result.recent_predictions %}
+                            <tr>
+                                <td>{{ row.date }}</td>
+                                <td>{{ row.total_events }}</td>
+                                <td>{{ row.total_eu | round(2) }}</td>
+                                <td>{{ row.avg_participants | round(2) }}</td>
+                                <td>{{ row.avg_duration | round(2) }}</td>
+                                <td>{{ row.median_response_min | round(2) }}</td>
+                                <td>{{ row.predicted_response_min | round(2) }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
