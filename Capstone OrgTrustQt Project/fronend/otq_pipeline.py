@@ -165,14 +165,21 @@ def build_event_table(dfs: List[pd.DataFrame]) -> pd.DataFrame:
 
 def otq_event_units(event_type: str, duration_min: float, participant_count: int) -> float:
     event_type = str(event_type or "").lower()
-    base = 1.0
-    if "meeting" in event_type:
-        base = 3.0
-    elif "chat" in event_type or "message" in event_type:
-        base = 1.0
-    elif "call" in event_type:
-        base = 2.0
-    return base * (1.0 + math.log1p(max(duration_min, 0.0))) * max(participant_count, 1)
+
+    if "meeting" in event_type or "teams_meeting" in event_type:
+        base = 24.5
+    elif "call" in event_type or "phone" in event_type:
+        base = 8.5
+    elif "email" in event_type or "outlook" in event_type:
+        base = 6.0
+    elif "chat" in event_type or "message" in event_type or "slack" in event_type:
+        base = 9.5
+    else:
+        base = 5.0
+
+    dur_bonus = min(max(duration_min, 0.0), 120.0) / 60.0
+    participant_bonus = math.log(max(participant_count, 1), 2) * 1.5
+    return float(base + dur_bonus + participant_bonus)
 
 
 def make_daily_features(events: pd.DataFrame) -> pd.DataFrame:
