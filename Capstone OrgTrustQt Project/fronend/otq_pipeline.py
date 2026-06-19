@@ -25,6 +25,19 @@ from sklearn.metrics import mean_squared_error
 from sklearn.inspection import permutation_importance
 import base64
 
+PIPELINE_BUILD = "2026-06-19-matplotlib-dashboard-v4"
+PLOT_CONFIG = {"responsive": True, "displayModeBar": False}
+
+
+def plotly_fragment(fig: go.Figure) -> str:
+    return pio.to_html(
+        fig,
+        include_plotlyjs=False,
+        full_html=False,
+        config=PLOT_CONFIG,
+        default_width="100%",
+    )
+
 
 def safe_int(x: Any, default: int = 0) -> int:
     try:
@@ -250,6 +263,12 @@ def fit_model(model_df: pd.DataFrame) -> Dict[str, Any]:
         "coefficients": coefs,
         "model": model,
         "feature_columns": feature_cols,
+        "X_train": X_train,
+        "X_test": X_test,
+        "y_train": y_train,
+        "y_test": y_test,
+        "pred_train": pred_train,
+        "pred_test": pred_test,
     }
 
 
@@ -262,7 +281,9 @@ def make_eda_plots(events: pd.DataFrame, daily: pd.DataFrame, outcome: pd.DataFr
         subplot_titles=("EU Score Distribution", "log(Duration) Distribution",
                        "Participant Count Distribution", "EU by Event Type",
                        "Daily Total EU Over Time", "EU vs Median Response Time"),
-        specs=[[{}, {}, {}], [{}, {}, {}]]
+        specs=[[{}, {}, {}], [{}, {}, {}]],
+        horizontal_spacing=0.12,
+        vertical_spacing=0.18
     )
     
     # Plot 1: EU distribution
@@ -309,8 +330,79 @@ def make_eda_plots(events: pd.DataFrame, daily: pd.DataFrame, outcome: pd.DataFr
     fig.update_yaxes(title_text="Total EU", row=2, col=2)
     fig.update_yaxes(title_text="Median Response (min)", row=2, col=3)
     
-    fig.update_layout(height=700, showlegend=False, title_text="Exploratory Data Analysis (EDA)")
-    return pio.to_html(fig, include_plotlyjs=False, full_html=False)
+    fig.update_layout(
+        height=760,
+        showlegend=False,
+        title_text="Exploratory Data Analysis (EDA)",
+        margin=dict(l=70, r=35, t=95, b=75),
+        template="plotly_white",
+        font=dict(size=11),
+    )
+    fig.update_annotations(font_size=12)
+    return plotly_fragment(fig)
+
+
+def make_eda_plots_png(events: pd.DataFrame, daily: pd.DataFrame, outcome: pd.DataFrame) -> str:
+    """Notebook cell 23: six-panel EDA rendered as a PNG."""
+    fig, axes = plt.subplots(2, 3, figsize=(16, 9))
+    fig.suptitle("EDA - Feature Distributions", fontsize=14, fontweight="bold")
+
+    axes[0, 0].hist(events["eu"].dropna(), bins=30, color="steelblue", edgecolor="white")
+    axes[0, 0].set_title("EU Score Distribution")
+    axes[0, 0].set_xlabel("Event Units (EU)")
+    axes[0, 0].set_ylabel("Count")
+
+    dur_nonzero = events.loc[events["duration_min"] > 0, "duration_min"].dropna()
+    if len(dur_nonzero) > 0:
+        axes[0, 1].hist(np.log1p(dur_nonzero), bins=30, color="coral", edgecolor="white")
+    else:
+        axes[0, 1].text(0.5, 0.5, "No non-zero durations", ha="center", va="center", transform=axes[0, 1].transAxes)
+    axes[0, 1].set_title("log(Duration + 1) Distribution")
+    axes[0, 1].set_xlabel("log(minutes + 1)")
+    axes[0, 1].set_ylabel("Count")
+
+    participant_max = max(15, int(events["participant_count"].max()) + 2)
+    axes[0, 2].hist(events["participant_count"].dropna(), bins=range(1, participant_max), color="mediumseagreen", edgecolor="white")
+    axes[0, 2].set_title("Participant Count Distribution")
+    axes[0, 2].set_xlabel("# Participants")
+    axes[0, 2].set_ylabel("Count")
+
+    event_order = events.groupby("event_type")["eu"].median().sort_values(ascending=False).index
+    sns.boxplot(data=events, x="event_type", y="eu", order=event_order, ax=axes[1, 0], palette="muted")
+    axes[1, 0].set_title("EU Score by Event Type")
+    axes[1, 0].set_xlabel("Event Type")
+    axes[1, 0].set_ylabel("EU Score")
+    axes[1, 0].tick_params(axis="x", rotation=15)
+
+    daily_sorted = daily.sort_values("date")
+    axes[1, 1].plot(daily_sorted["date"], daily_sorted["total_eu"], color="steelblue", linewidth=1.2)
+    axes[1, 1].set_title("Daily Total EU Over Time")
+    axes[1, 1].set_xlabel("Date")
+    axes[1, 1].set_ylabel("Total EU")
+    axes[1, 1].tick_params(axis="x", rotation=30)
+
+    merged_eda = daily.merge(outcome, on="date", how="inner")
+    if len(merged_eda) > 0:
+        axes[1, 2].scatter(
+            merged_eda["total_eu"],
+            merged_eda["median_response_min"],
+            alpha=0.6,
+            color="darkorange",
+            edgecolors="white",
+            linewidths=0.5,
+        )
+    else:
+        axes[1, 2].text(0.5, 0.5, "No merged outcome rows", ha="center", va="center", transform=axes[1, 2].transAxes)
+    axes[1, 2].set_title("Total EU vs Median Response Time")
+    axes[1, 2].set_xlabel("Total EU (daily)")
+    axes[1, 2].set_ylabel("Median Response (min)")
+
+    fig.tight_layout()
+    buf = io.BytesIO()
+    fig.savefig(buf, format="png", dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    buf.seek(0)
+    return base64.b64encode(buf.read()).decode("ascii")
 
 
 def make_correlation_heatmap(daily: pd.DataFrame) -> str:
@@ -318,101 +410,389 @@ def make_correlation_heatmap(daily: pd.DataFrame) -> str:
     corr_cols = ["total_eu", "total_events", "avg_eu", "avg_participants", "avg_duration",
                  "log_total_eu", "log_total_events", "log_total_text"]
     available_cols = [c for c in corr_cols if c in daily.columns]
-    corr_matrix = daily[available_cols].corr()
+    if not available_cols:
+        raise ValueError("No daily feature columns are available for the correlation heatmap.")
+
+    corr_input = daily[available_cols].apply(pd.to_numeric, errors="coerce")
+    corr_matrix = corr_input.corr()
+
+    # Correlation is undefined for one-row data or zero-variance columns.
+    # Keep the heatmap visible by showing undefined off-diagonal values as 0
+    # and self-correlation as 1.
+    corr_matrix = corr_matrix.reindex(index=available_cols, columns=available_cols)
+    corr_values = corr_matrix.to_numpy(dtype=float)
+    corr_values = np.nan_to_num(corr_values, nan=0.0, posinf=0.0, neginf=0.0)
+    np.fill_diagonal(corr_values, 1.0)
+    text_values = np.round(corr_values, 2)
     
     fig = go.Figure(data=go.Heatmap(
-        z=corr_matrix.values,
-        x=corr_matrix.columns,
-        y=corr_matrix.columns,
+        z=corr_values,
+        x=available_cols,
+        y=available_cols,
         colorscale="RdBu",
         zmid=0,
-        text=np.round(corr_matrix.values, 2),
+        zmin=-1,
+        zmax=1,
+        text=text_values,
         texttemplate="%{text:.2f}",
         textfont={"size": 10},
         colorbar=dict(title="Correlation")
     ))
-    fig.update_layout(title="Feature Correlation Matrix (Daily Aggregated)", height=600, width=700)
-    return pio.to_html(fig, include_plotlyjs=False, full_html=False)
+    fig.update_layout(
+        title="Feature Correlation Matrix (Daily Aggregated)",
+        height=650,
+        margin=dict(l=155, r=35, t=75, b=120),
+        template="plotly_white",
+        font=dict(size=11),
+    )
+    fig.update_xaxes(type="category", tickangle=-35)
+    fig.update_yaxes(type="category", autorange="reversed")
+    return plotly_fragment(fig)
+
+
+def make_correlation_heatmap_png(daily: pd.DataFrame) -> str:
+    """Notebook cell 24: seaborn correlation heatmap rendered as PNG."""
+    corr_cols = ["total_eu", "total_events", "avg_eu", "avg_participants", "avg_duration",
+                 "log_total_eu", "log_total_events", "log_total_text"]
+    available_cols = [c for c in corr_cols if c in daily.columns]
+    if not available_cols:
+        raise ValueError("No daily feature columns are available for the correlation heatmap.")
+
+    corr_input = daily[available_cols].apply(pd.to_numeric, errors="coerce")
+    corr_matrix = corr_input.corr().reindex(index=available_cols, columns=available_cols)
+    corr_values = corr_matrix.to_numpy(dtype=float)
+    corr_values = np.nan_to_num(corr_values, nan=0.0, posinf=0.0, neginf=0.0)
+    np.fill_diagonal(corr_values, 1.0)
+    corr_display = pd.DataFrame(corr_values, index=available_cols, columns=available_cols)
+
+    fig, ax = plt.subplots(figsize=(9, 7))
+    sns.heatmap(
+        corr_display,
+        annot=True,
+        fmt=".2f",
+        cmap="coolwarm",
+        center=0,
+        vmin=-1,
+        vmax=1,
+        linewidths=0.5,
+        ax=ax,
+        square=True,
+        cbar_kws={"shrink": 0.8},
+    )
+    ax.set_title("Feature Correlation Matrix\n(Daily Aggregated Features)", fontsize=13, fontweight="bold")
+    fig.tight_layout()
+
+    buf = io.BytesIO()
+    fig.savefig(buf, format="png", dpi=160, bbox_inches="tight")
+    plt.close(fig)
+    buf.seek(0)
+    return base64.b64encode(buf.read()).decode("ascii")
+
+
+def make_source_channel_breakdown(events: pd.DataFrame) -> str:
+    """Notebook cell 25: events by source and total EU by channel."""
+    from plotly.subplots import make_subplots
+
+    source_counts = events["source"].value_counts()
+    channel_eu = events.groupby("channel")["eu"].sum().sort_values(ascending=True)
+
+    fig = make_subplots(
+        rows=1,
+        cols=2,
+        subplot_titles=("Events by Source", "Total EU by Channel"),
+        horizontal_spacing=0.20,
+        specs=[[{}, {}]],
+    )
+    fig.add_trace(
+        go.Bar(
+            x=source_counts.index,
+            y=source_counts.values,
+            text=source_counts.values,
+            textposition="outside",
+            marker_color=["#4682b4", "#ff7f50", "#3cb371"][: len(source_counts)],
+            showlegend=False,
+        ),
+        row=1,
+        col=1,
+    )
+    fig.add_trace(
+        go.Bar(
+            x=channel_eu.values,
+            y=channel_eu.index,
+            orientation="h",
+            marker_color="#6a5acd",
+            showlegend=False,
+        ),
+        row=1,
+        col=2,
+    )
+    fig.update_xaxes(title_text="Source", row=1, col=1)
+    fig.update_yaxes(title_text="Event Count", row=1, col=1)
+    fig.update_xaxes(title_text="Total EU Score", row=1, col=2)
+    fig.update_yaxes(title_text="Channel", row=1, col=2)
+    fig.update_layout(
+        height=500,
+        title_text="Communication Source & Event Type Breakdown",
+        margin=dict(l=110, r=35, t=90, b=70),
+        template="plotly_white",
+        font=dict(size=11),
+    )
+    fig.update_annotations(font_size=12)
+    return plotly_fragment(fig)
+
+
+def make_alpha_sweep_plot(X: np.ndarray, y: np.ndarray) -> str:
+    """Notebook cell 31: Ridge alpha sweep with CV RMSE error bars."""
+    alphas = np.logspace(-3, 3, 13)
+    mean_rmse = np.zeros(len(alphas))
+    std_rmse = np.zeros(len(alphas))
+
+    for i, alpha in enumerate(alphas):
+        folds = cv_rmse(Ridge(alpha=alpha), X, y)
+        mean_rmse[i] = np.nanmean(folds)
+        std_rmse[i] = np.nanstd(folds)
+
+    best_idx = int(np.nanargmin(mean_rmse))
+    best_alpha = float(alphas[best_idx])
+
+    fig = go.Figure()
+    fig.add_trace(
+        go.Scatter(
+            x=alphas,
+            y=mean_rmse,
+            error_y=dict(type="data", array=std_rmse, visible=True),
+            mode="lines+markers",
+            name="CV RMSE",
+            line=dict(color="#4682b4"),
+        )
+    )
+    fig.add_vline(
+        x=best_alpha,
+        line_dash="dash",
+        line_color="#b22222",
+        annotation_text=f"best alpha = {best_alpha:g}",
+        annotation_position="top right",
+    )
+    fig.update_xaxes(type="log", title_text="Ridge alpha (log scale)")
+    fig.update_yaxes(title_text="CV RMSE (minutes)")
+    fig.update_layout(
+        height=500,
+        title_text="Ridge Alpha Sweep - Cross-Validated RMSE",
+        margin=dict(l=75, r=35, t=80, b=70),
+        template="plotly_white",
+        font=dict(size=11),
+    )
+    return plotly_fragment(fig)
+
+
+def make_model_comparison_plot(compare_df: pd.DataFrame) -> str:
+    """Notebook cell 33: model-family CV comparison."""
+    if compare_df.empty:
+        raise ValueError("Model comparison did not produce any rows.")
+
+    plot_df = compare_df.sort_values("Mean CV RMSE", ascending=False)
+    colors = ["#4682b4" if str(name).startswith("Ridge") else "#d1d5db" for name in plot_df["Model"]]
+
+    fig = go.Figure(
+        go.Bar(
+            x=plot_df["Mean CV RMSE"],
+            y=plot_df["Model"],
+            orientation="h",
+            error_x=dict(type="data", array=plot_df["Std  CV RMSE"], visible=True),
+            marker_color=colors,
+        )
+    )
+    fig.update_xaxes(title_text="Mean Cross-Validated RMSE (minutes)")
+    fig.update_yaxes(title_text="Model")
+    fig.update_layout(
+        height=500,
+        title_text="Model Comparison - 5-Fold CV",
+        margin=dict(l=165, r=35, t=80, b=70),
+        template="plotly_white",
+        font=dict(size=11),
+    )
+    return plotly_fragment(fig)
 
 
 def make_stage_diagnosis_dashboard(events: pd.DataFrame, daily: pd.DataFrame, outcome: pd.DataFrame) -> str:
-    """Generate stage diagnosis dashboard as Plotly multi-panel."""
+    """Notebook cell 48: four-panel stage diagnosis dashboard."""
     tuckman_scores = score_tuckman_stages(events, daily, outcome)
     tribal_scores = score_tribal_stages(events)
-    
+
     tuckman_stage = max(tuckman_scores, key=tuckman_scores.get)
     tribal_stage = max(tribal_scores, key=tribal_scores.get)
-    
+
     from plotly.subplots import make_subplots
-    
+
     fig = make_subplots(
-        rows=2, cols=2,
-        subplot_titles=("Tuckman Group Development", "Tribal Leadership Stages",
-                       "Diagnosed Stages", "Summary Metrics"),
-        specs=[[{}, {}], [{}, {}]]
+        rows=2,
+        cols=2,
+        subplot_titles=(
+            "Tuckman Group Development",
+            "Tribal Leadership Stages",
+            "Diagnosed Stage Tracks",
+            "Diagnosis Summary",
+        ),
+        specs=[[{}, {}], [{"type": "scatter"}, {"type": "scatter"}]],
+        horizontal_spacing=0.18,
+        vertical_spacing=0.18,
     )
-    
-    # Panel 1: Tuckman stages
+
     t_order = ["Forming", "Storming", "Norming", "Performing", "Adjourning"]
     t_values = [tuckman_scores.get(s, 0) for s in t_order]
     t_colors = ["#d97706" if s == tuckman_stage else "#94a3b8" for s in t_order]
-    
-    fig.add_trace(go.Bar(y=t_order, x=t_values, orientation="h", marker_color=t_colors, showlegend=False),
-                  row=1, col=1)
-    
-    # Panel 2: Tribal stages
-    tr_order = ["1 — Despairing Hostility", "2 — Apathetic Victim", "3 — Lone Warrior",
-                "4 — Tribal Pride", "5 — Innocent Wonderment"]
+    fig.add_trace(
+        go.Bar(
+            y=t_order,
+            x=t_values,
+            orientation="h",
+            marker_color=t_colors,
+            text=[f"{v:.2f}" for v in t_values],
+            textposition="outside",
+            showlegend=False,
+        ),
+        row=1,
+        col=1,
+    )
+
+    tr_order = [
+        "1 — Despairing Hostility",
+        "2 — Apathetic Victim",
+        "3 — Lone Warrior",
+        "4 — Tribal Pride",
+        "5 — Innocent Wonderment",
+    ]
+    tr_display = ["1 Hostility", "2 Victim", "3 Lone Warrior", "4 Pride", "5 Wonderment"]
     tr_values = [tribal_scores.get(s, 0) for s in tr_order]
     tr_colors = ["#7c3aed" if s == tribal_stage else "#94a3b8" for s in tr_order]
-    
-    fig.add_trace(go.Bar(y=tr_order, x=tr_values, orientation="h", marker_color=tr_colors, showlegend=False),
-                  row=1, col=2)
-    
-    # Panel 3: Text summary of stages (as annotation)
-    summary_text = f"<b>Tuckman:</b> {tuckman_stage}<br><b>Tribal:</b> {tribal_stage}"
-    fig.add_annotation(text=summary_text, xref="paper", yref="paper", 
-                      x=0.25, y=0.25, showarrow=False, row=2, col=1)
-    
-    # Panel 4: Metrics summary
+    fig.add_trace(
+        go.Bar(
+            y=tr_display,
+            x=tr_values,
+            orientation="h",
+            marker_color=tr_colors,
+            text=[f"{v:.2f}" for v in tr_values],
+            textposition="outside",
+            showlegend=False,
+        ),
+        row=1,
+        col=2,
+    )
+
+    track_x = np.arange(1, 6)
+    tribal_short = ["1 Hostility", "2 Victim", "3 Lone", "4 Pride", "5 Wonder"]
+    fig.add_trace(
+        go.Scatter(
+            x=track_x,
+            y=[1.35] * 5,
+            mode="markers+text",
+            marker=dict(size=56, color=["#d97706" if s == tuckman_stage else "#e2e8f0" for s in t_order]),
+            text=t_order,
+            textposition="middle center",
+            textfont=dict(size=9, color=["white" if s == tuckman_stage else "#475569" for s in t_order]),
+            hovertext=[f"{s}: {tuckman_scores[s]:.2f}" for s in t_order],
+            hoverinfo="text",
+            showlegend=False,
+        ),
+        row=2,
+        col=1,
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=track_x,
+            y=[0.35] * 5,
+            mode="markers+text",
+            marker=dict(size=56, color=["#7c3aed" if s == tribal_stage else "#e2e8f0" for s in tr_order]),
+            text=tribal_short,
+            textposition="middle center",
+            textfont=dict(size=9, color=["white" if s == tribal_stage else "#475569" for s in tr_order]),
+            hovertext=[f"{label}: {tribal_scores[stage]:.2f}" for label, stage in zip(tr_display, tr_order)],
+            hoverinfo="text",
+            showlegend=False,
+        ),
+        row=2,
+        col=1,
+    )
+    fig.add_annotation(text="<b>Tuckman Stage</b>", x=3, y=1.85, showarrow=False, row=2, col=1)
+    fig.add_annotation(text="<b>Tribal Stage</b>", x=3, y=0.85, showarrow=False, row=2, col=1)
+
     metric_lines = [
+        "<b>DIAGNOSIS SUMMARY</b>",
+        "",
+        f"<b>Group Development:</b> {tuckman_stage}",
+        f"Confidence: {tuckman_scores[tuckman_stage]:.2f}",
+        "",
+        f"<b>Tribal Culture:</b> {tribal_stage}",
+        f"Confidence: {tribal_scores[tribal_stage]:.2f}",
+        "",
         f"Total events: {len(events)}",
         f"Unique actors: {events['actor'].nunique()}",
-        f"Date range: {events['date'].min().date()} → {events['date'].max().date()}",
+        f"Date range: {events['date'].min().date()} to {events['date'].max().date()}",
         f"Avg daily EU: {daily['total_eu'].mean():.1f}",
-        f"Median response: {outcome['median_response_min'].median():.1f} min" if len(outcome) > 0 else "Median response: n/a"
+        f"Median response: {outcome['median_response_min'].median():.1f} min" if len(outcome) else "Median response: n/a",
     ]
-    metrics_text = "<br>".join(metric_lines)
-    fig.add_annotation(text=metrics_text, xref="paper", yref="paper",
-                      x=0.75, y=0.25, showarrow=False, row=2, col=2, font=dict(family="monospace"))
-    
-    fig.update_xaxes(title_text="Score", row=1, col=1)
-    fig.update_xaxes(title_text="Score", row=1, col=2)
-    
-    fig.update_layout(height=700, showlegend=False, title_text="Stage Diagnosis Dashboard")
-    return pio.to_html(fig, include_plotlyjs=False, full_html=False)
+    fig.add_trace(
+        go.Scatter(
+            x=[0.03],
+            y=[0.92],
+            mode="text",
+            text=["<br>".join(metric_lines)],
+            textposition="top left",
+            textfont=dict(size=12, color="#0f172a", family="monospace"),
+            hoverinfo="skip",
+            showlegend=False,
+        ),
+        row=2,
+        col=2,
+    )
+
+    fig.update_xaxes(title_text="Score", range=[0, 1.15], row=1, col=1)
+    fig.update_xaxes(title_text="Score", range=[0, 1.15], row=1, col=2)
+    fig.update_yaxes(autorange="reversed", row=1, col=1)
+    fig.update_yaxes(autorange="reversed", row=1, col=2)
+    fig.update_xaxes(range=[0.5, 5.5], showticklabels=False, zeroline=False, row=2, col=1)
+    fig.update_yaxes(range=[0, 2.1], showticklabels=False, zeroline=False, row=2, col=1)
+    fig.update_xaxes(range=[0, 1], showticklabels=False, zeroline=False, row=2, col=2)
+    fig.update_yaxes(range=[0, 1], showticklabels=False, zeroline=False, row=2, col=2)
+
+    fig.update_layout(
+        height=850,
+        showlegend=False,
+        title_text="OTQ Stage-Diagnosis Dashboard",
+        margin=dict(l=105, r=35, t=95, b=70),
+        template="plotly_white",
+        font=dict(size=11),
+    )
+    fig.update_annotations(font_size=12)
+    return plotly_fragment(fig)
 
 
-def make_model_diagnostics(model_df: pd.DataFrame, model: Any) -> str:
+def make_model_diagnostics(model_df: pd.DataFrame, model: Any, model_info: Optional[Dict[str, Any]] = None) -> str:
     """Generate 2x2 model diagnostics as Plotly subplots."""
     from plotly.subplots import make_subplots
     
     X = model_df[["log_total_eu", "log_total_events", "avg_participants", "avg_duration", "log_total_text"]].fillna(0.0)
     y_true = model_df["median_response_min"]
     y_pred = model.predict(X.to_numpy())
+    y_test = model_info.get("y_test") if model_info else None
+    pred_test = model_info.get("pred_test") if model_info else None
     
     fig = make_subplots(
         rows=2, cols=2,
         subplot_titles=("Actual vs Predicted (Test Set)", "Trend Over Time",
                        "EU vs Response Time", "Residual Plot"),
-        specs=[[{}, {}], [{}, {}]]
+        specs=[[{}, {}], [{}, {}]],
+        horizontal_spacing=0.16,
+        vertical_spacing=0.18
     )
     
     # Plot 1: Actual vs Predicted scatter
-    fig.add_trace(go.Scatter(x=y_true, y=y_pred, mode="markers", name="Predictions",
+    actual_scatter = y_test if y_test is not None else y_true
+    predicted_scatter = pred_test if pred_test is not None else y_pred
+    fig.add_trace(go.Scatter(x=actual_scatter, y=predicted_scatter, mode="markers", name="Predictions",
                             marker=dict(color="#3366ff")),
                   row=1, col=1)
-    lims = [min(y_true.min(), y_pred.min()), max(y_true.max(), y_pred.max())]
+    lims = [min(np.min(actual_scatter), np.min(predicted_scatter)), max(np.max(actual_scatter), np.max(predicted_scatter))]
     fig.add_trace(go.Scatter(x=lims, y=lims, mode="lines", name="Perfect fit",
                             line=dict(color="red", dash="dash")),
                   row=1, col=1)
@@ -448,8 +828,154 @@ def make_model_diagnostics(model_df: pd.DataFrame, model: Any) -> str:
     fig.update_yaxes(title_text="Response (min)", row=2, col=1)
     fig.update_yaxes(title_text="Residual", row=2, col=2)
     
-    fig.update_layout(height=700, showlegend=True, title_text="Model Diagnostics")
-    return pio.to_html(fig, include_plotlyjs=False, full_html=False)
+    fig.update_layout(
+        height=760,
+        showlegend=True,
+        title_text="Model Diagnostics",
+        margin=dict(l=75, r=35, t=95, b=75),
+        template="plotly_white",
+        font=dict(size=11),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+    )
+    fig.update_annotations(font_size=12)
+    return plotly_fragment(fig)
+
+
+def make_model_diagnostics_png(model_df: pd.DataFrame, model: Any, model_info: Dict[str, Any]) -> str:
+    """Notebook cell 39: model diagnostics rendered as a PNG."""
+    feature_cols = model_info["feature_columns"]
+    target_col = "median_response_min"
+
+    model_df_plot = model_df.sort_values("date").copy()
+    model_df_plot["pred"] = model.predict(model_df_plot[feature_cols].fillna(0.0).to_numpy())
+    model_df_plot["residual"] = model_df_plot[target_col] - model_df_plot["pred"]
+
+    y_test = model_info.get("y_test")
+    pred_test = model_info.get("pred_test")
+    if y_test is None or pred_test is None:
+        y_test = model_df_plot[target_col].to_numpy()
+        pred_test = model_df_plot["pred"].to_numpy()
+
+    fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+    fig.suptitle("OTQ Model Diagnostics & Visualizations", fontsize=14, fontweight="bold")
+
+    axes[0, 0].scatter(y_test, pred_test, alpha=0.7, color="steelblue", edgecolors="white")
+    lims = [min(np.min(y_test), np.min(pred_test)), max(np.max(y_test), np.max(pred_test))]
+    axes[0, 0].plot(lims, lims, "r--", linewidth=1, label="Perfect fit")
+    axes[0, 0].set_xlabel("Actual Median Response (min)")
+    axes[0, 0].set_ylabel("Predicted Median Response (min)")
+    axes[0, 0].set_title("Actual vs Predicted (Test Set)")
+    axes[0, 0].legend()
+
+    axes[0, 1].plot(model_df_plot["date"], model_df_plot[target_col], label="Actual", linewidth=1.5, color="steelblue")
+    axes[0, 1].plot(model_df_plot["date"], model_df_plot["pred"], label="Predicted", linewidth=1.5, color="coral", linestyle="--")
+    axes[0, 1].set_xlabel("Date")
+    axes[0, 1].set_ylabel("Median Response (min)")
+    axes[0, 1].set_title("Response Time Trend: Actual vs Predicted")
+    axes[0, 1].legend()
+    axes[0, 1].tick_params(axis="x", rotation=30)
+
+    axes[1, 0].scatter(
+        model_df_plot["total_eu"],
+        model_df_plot[target_col],
+        alpha=0.6,
+        color="mediumseagreen",
+        edgecolors="white",
+    )
+    axes[1, 0].set_xlabel("Total Daily EU (Engagement Score)")
+    axes[1, 0].set_ylabel("Median Response Time (min)")
+    axes[1, 0].set_title("Engagement (EU) vs Response Time\n(Core OTQ Relationship)")
+
+    axes[1, 1].scatter(
+        model_df_plot["pred"],
+        model_df_plot["residual"],
+        alpha=0.6,
+        color="slateblue",
+        edgecolors="white",
+    )
+    axes[1, 1].axhline(0, color="red", linestyle="--", linewidth=1)
+    axes[1, 1].set_xlabel("Predicted Value")
+    axes[1, 1].set_ylabel("Residual (Actual - Predicted)")
+    axes[1, 1].set_title("Residual Plot\n(Random scatter = good fit)")
+
+    fig.tight_layout()
+    buf = io.BytesIO()
+    fig.savefig(buf, format="png", dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    buf.seek(0)
+    return base64.b64encode(buf.read()).decode("ascii")
+
+
+def make_coefficient_plot(model_info: Dict[str, Any]) -> str:
+    """Notebook cell 40: signed Ridge coefficient chart."""
+    coefs_df = pd.DataFrame(model_info["coefficients"]).rename(
+        columns={"feature": "Feature", "coefficient": "Coefficient"}
+    )
+    coefs_df = coefs_df.sort_values("Coefficient", ascending=True)
+    colors = ["#ff7f50" if value < 0 else "#4682b4" for value in coefs_df["Coefficient"]]
+
+    fig = go.Figure(
+        go.Bar(
+            x=coefs_df["Coefficient"],
+            y=coefs_df["Feature"],
+            orientation="h",
+            marker_color=colors,
+            showlegend=False,
+        )
+    )
+    fig.add_vline(x=0, line_color="#111827", line_width=1)
+    fig.update_xaxes(title_text="Coefficient Value")
+    fig.update_yaxes(title_text="Feature")
+    fig.update_layout(
+        height=470,
+        title_text="Ridge Regression Coefficients",
+        margin=dict(l=145, r=35, t=80, b=65),
+        template="plotly_white",
+        font=dict(size=11),
+    )
+    return plotly_fragment(fig)
+
+
+def make_permutation_importance_plot(model: Any, model_info: Dict[str, Any], X_test: np.ndarray, y_test: np.ndarray) -> str:
+    """Notebook cell 42: permutation importance on the held-out test set."""
+    feature_cols = model_info["feature_columns"]
+    n_repeats = 30 if len(y_test) >= 4 else 10
+    perm = permutation_importance(
+        model,
+        X_test,
+        y_test,
+        n_repeats=n_repeats,
+        random_state=42,
+        scoring="neg_mean_squared_error",
+    )
+    perm_df = pd.DataFrame(
+        {
+            "Feature": feature_cols,
+            "Mean Importance": perm.importances_mean,
+            "Std Importance": perm.importances_std,
+        }
+    ).sort_values("Mean Importance", ascending=True)
+
+    fig = go.Figure(
+        go.Bar(
+            x=perm_df["Mean Importance"],
+            y=perm_df["Feature"],
+            orientation="h",
+            error_x=dict(type="data", array=perm_df["Std Importance"], visible=True),
+            marker_color="#6a5acd",
+            showlegend=False,
+        )
+    )
+    fig.update_xaxes(title_text="Increase in MSE when feature is shuffled")
+    fig.update_yaxes(title_text="Feature")
+    fig.update_layout(
+        height=500,
+        title_text="Permutation Feature Importance - Ridge",
+        margin=dict(l=145, r=35, t=80, b=75),
+        template="plotly_white",
+        font=dict(size=11),
+    )
+    return plotly_fragment(fig)
 
 
 def make_feature_importance(model_info: Dict[str, Any], model_df: pd.DataFrame, model: Any) -> str:
@@ -476,7 +1002,8 @@ def make_feature_importance(model_info: Dict[str, Any], model_df: pd.DataFrame, 
     fig = make_subplots(
         rows=1, cols=2,
         subplot_titles=("Ridge Coefficients", "Permutation Importance"),
-        specs=[[{}, {}]]
+        specs=[[{}, {}]],
+        horizontal_spacing=0.18
     )
     
     fig.add_trace(go.Bar(x=coefs_df["coefficient"], y=coefs_df["feature"],
@@ -491,8 +1018,16 @@ def make_feature_importance(model_info: Dict[str, Any], model_df: pd.DataFrame, 
     fig.update_xaxes(title_text="Coefficient", row=1, col=1)
     fig.update_xaxes(title_text="Importance", row=1, col=2)
     
-    fig.update_layout(height=400, showlegend=False, title_text="Feature Importance Analysis")
-    return pio.to_html(fig, include_plotlyjs=False, full_html=False)
+    fig.update_layout(
+        height=460,
+        showlegend=False,
+        title_text="Feature Importance Analysis",
+        margin=dict(l=135, r=35, t=85, b=65),
+        template="plotly_white",
+        font=dict(size=11),
+    )
+    fig.update_annotations(font_size=12)
+    return plotly_fragment(fig)
 
 
 def make_data_summary(events: pd.DataFrame, file_counts: Dict[str, int]) -> Dict[str, Any]:
@@ -527,12 +1062,18 @@ except Exception:
 
 
 def cv_rmse(estimator, X, y, n_splits=5, random_state=42):
+    n_splits = min(n_splits, len(y))
+    if n_splits < 2:
+        return np.array([np.nan])
     kf = KFold(n_splits=n_splits, shuffle=True, random_state=random_state)
     neg_mse = cross_val_score(estimator, X, y, scoring="neg_mean_squared_error", cv=kf)
     return np.sqrt(-neg_mse)
 
 
 def cv_r2(estimator, X, y, n_splits=5, random_state=42):
+    n_splits = min(n_splits, len(y))
+    if n_splits < 2:
+        return np.array([np.nan])
     kf = KFold(n_splits=n_splits, shuffle=True, random_state=random_state)
     return cross_val_score(estimator, X, y, scoring="r2", cv=kf)
 
@@ -825,58 +1366,63 @@ def run_otq_pipeline(uploaded_files: List[Any]) -> Dict[str, Any]:
         buf.seek(0)
         plots.append({"title": "Actual vs Predicted", "data": base64.b64encode(buf.read()).decode('ascii')})
 
-        # Plot 1: EU distribution (Plotly)
-        eu_vals = events["eu"].dropna()
-        if eu_vals.nunique() <= 1:
-            val = float(eu_vals.iloc[0]) if len(eu_vals) > 0 else 0.0
-            fig_px = px.bar(x=[val], y=[len(eu_vals)], labels={"x": "EU", "y": "count"},
-                            title="Event Units (EU) Distribution (single value)", template="plotly_white")
-        else:
-            fig_px = px.histogram(events, x="eu", nbins=30, title="Event Units (EU) Distribution",
-                                  labels={"eu": "EU"}, template="plotly_white")
-        fig_px.update_layout(height=350)
-        html1 = pio.to_html(fig_px, include_plotlyjs=False, full_html=False)
-        plots.append({"title": "EU Distribution", "type": "plotly", "html": html1})
+        # # Plot 1: EU distribution (Plotly)
+        # eu_vals = events["eu"].dropna()
+        # if eu_vals.nunique() <= 1:
+        #     val = float(eu_vals.iloc[0]) if len(eu_vals) > 0 else 0.0
+        #     fig_px = px.bar(x=[val], y=[len(eu_vals)], labels={"x": "EU", "y": "count"},
+        #                     title="Event Units (EU) Distribution (single value)", template="plotly_white")
+        # else:
+        #     fig_px = px.histogram(events, x="eu", nbins=30, title="Event Units (EU) Distribution",
+        #                           labels={"eu": "EU"}, template="plotly_white")
+        # fig_px.update_layout(height=350)
+        # html1 = pio.to_html(fig_px, include_plotlyjs=False, full_html=False)
+        # plots.append({"title": "EU Distribution", "type": "plotly", "html": html1})
 
-        # Plot 2: Feature Coefficients (Plotly)
-        coefs_df = pd.DataFrame(model_info["coefficients"]).sort_values(by="coefficient")
-        fig_coefs = go.Figure(go.Bar(x=coefs_df['coefficient'], y=coefs_df['feature'], orientation='h', marker_color='#2b8aef'))
-        fig_coefs.update_layout(title_text='Feature Coefficients (sorted)', template='plotly_white', height=350)
-        html2 = pio.to_html(fig_coefs, include_plotlyjs=False, full_html=False)
-        plots.append({"title": "Feature Coefficients", "type": "plotly", "html": html2})
+        # # Plot 2: Feature Coefficients (Plotly)
+        # coefs_df = pd.DataFrame(model_info["coefficients"]).sort_values(by="coefficient")
+        # fig_coefs = go.Figure(go.Bar(x=coefs_df['coefficient'], y=coefs_df['feature'], orientation='h', marker_color='#2b8aef'))
+        # fig_coefs.update_layout(title_text='Feature Coefficients (sorted)', template='plotly_white', height=350)
+        # html2 = pio.to_html(fig_coefs, include_plotlyjs=False, full_html=False)
+        # plots.append({"title": "Feature Coefficients", "type": "plotly", "html": html2})
 
-        # Plot 3: Actual vs Predicted over time (Plotly)
-        fig_trend = go.Figure()
-        fig_trend.add_trace(go.Scatter(x=model_df['date'], y=model_df['median_response_min'], mode='lines+markers', name='Actual', line=dict(color='#3366ff')))
-        fig_trend.add_trace(go.Scatter(x=model_df['date'], y=model_df['predicted_response_min'], mode='lines+markers', name='Predicted', line=dict(color='#ff7f0e')))
-        fig_trend.update_layout(title='Actual vs Predicted Median Response (by date)', xaxis_title='Date', yaxis_title='Median response (minutes)', template='plotly_white', height=350)
-        html3 = pio.to_html(fig_trend, include_plotlyjs=False, full_html=False)
-        plots.append({"title": "Actual vs Predicted", "type": "plotly", "html": html3})
-
-        # Plot 4: EDA (6 subplots)
-        eda_html = make_eda_plots(events, daily, outcome)
-        plots.append({"title": "Exploratory Data Analysis", "type": "plotly", "html": eda_html})
-
-        # Plot 5: Correlation Heatmap
-        corr_html = make_correlation_heatmap(daily)
-        plots.append({"title": "Correlation Heatmap", "type": "plotly", "html": corr_html})
-
-        # Plot 6: Stage Diagnosis Dashboard
-        stage_html = make_stage_diagnosis_dashboard(events, daily, outcome)
-        plots.append({"title": "Stage Diagnosis Dashboard", "type": "plotly", "html": stage_html})
-
-        # Plot 7: Model Diagnostics
-        diag_html = make_model_diagnostics(model_df, model)
-        plots.append({"title": "Model Diagnostics", "type": "plotly", "html": diag_html})
-
-        # Plot 8: Feature Importance
-        imp_html = make_feature_importance(model_info, model_df, model)
-        plots.append({"title": "Feature Importance", "type": "plotly", "html": imp_html})
+        # # Plot 3: Actual vs Predicted over time (Plotly)
+        # fig_trend = go.Figure()
+        # fig_trend.add_trace(go.Scatter(x=model_df['date'], y=model_df['median_response_min'], mode='lines+markers', name='Actual', line=dict(color='#3366ff')))
+        # fig_trend.add_trace(go.Scatter(x=model_df['date'], y=model_df['predicted_response_min'], mode='lines+markers', name='Predicted', line=dict(color='#ff7f0e')))
+        # fig_trend.update_layout(title='Actual vs Predicted Median Response (by date)', xaxis_title='Date', yaxis_title='Median response (minutes)', template='plotly_white', height=350)
+        # html3 = pio.to_html(fig_trend, include_plotlyjs=False, full_html=False)
+        # plots.append({"title": "Actual vs Predicted", "type": "plotly", "html": html3})
 
     except Exception as e:
         plots.append({"title": "plots_error", "data": str(e)})
 
+    def add_plot(title: str, make_html: Any) -> None:
+        try:
+            plots.append({"title": title, "type": "plotly", "html": make_html()})
+        except Exception as exc:
+            plots.append({"title": "plots_error", "data": f"{title}: {exc}"})
+
+    def add_png_plot(title: str, make_png: Any) -> None:
+        try:
+            plots.append({"title": title, "data": make_png()})
+        except Exception as exc:
+            plots.append({"title": "plots_error", "data": f"{title}: {exc}"})
+
+    X_all = model_df[feature_cols].fillna(0.0).to_numpy()
+    y_all = model_df["median_response_min"].fillna(model_df["median_response_min"].median()).to_numpy()
+
+    add_png_plot("Exploratory Data Analysis", lambda: make_eda_plots_png(events, daily, outcome))
+    add_png_plot("Correlation Heatmap", lambda: make_correlation_heatmap_png(daily))
+    add_plot("Source and Channel Breakdown", lambda: make_source_channel_breakdown(events))
+    add_plot("Ridge Alpha Sweep", lambda: make_alpha_sweep_plot(X_all, y_all))
+    add_png_plot("Model Diagnostics", lambda: make_model_diagnostics_png(model_df, model, model_info))
+    add_plot("Ridge Coefficients", lambda: make_coefficient_plot(model_info))
+    add_plot("Permutation Importance", lambda: make_permutation_importance_plot(model, model_info, model_info["X_test"], model_info["y_test"]))
+    add_plot("Stage Diagnosis Dashboard", lambda: make_stage_diagnosis_dashboard(events, daily, outcome))
+
     return {
+        "pipeline_build": PIPELINE_BUILD,
         "file_counts": file_counts,
         "data_summary": data_summary,
         "event_rows": int(events.shape[0]),
