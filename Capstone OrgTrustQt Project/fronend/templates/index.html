@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OTQ CSV Upload & Prediction</title>
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
     <style>
         :root {
             color-scheme: light;
@@ -209,6 +210,60 @@
             font-size: 1.3rem;
         }
 
+        .plots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+            gap: 24px;
+            align-items: start;
+        }
+
+        .plot-card {
+            margin: 0;
+            background: var(--surface-strong);
+            padding: 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(17,32,76,0.04);
+            min-width: 0;
+        }
+
+        .plot-card-wide {
+            grid-column: 1 / -1;
+        }
+
+        .plot-card figcaption {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+            font-size: 1.05rem;
+        }
+
+        .plot-kind {
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .plotly-wrap {
+            width: 100%;
+            min-width: 0;
+            overflow-x: auto;
+        }
+
+        .plotly-wrap .plotly-graph-div {
+            width: 100% !important;
+            min-height: 350px;
+        }
+
+        .plot-card-wide .plotly-graph-div {
+            min-width: 900px;
+        }
+
         @media (max-width: 700px) {
             .page { padding: 20px 0 40px; }
             .card { padding: 22px; }
@@ -248,37 +303,42 @@
                 </div>
 
                 <div class="summary-grid">
-                    <div class="summary-card"><strong>Event rows</strong><div>{{ result.event_rows }}</div></div>
+                    <div class="summary-card"><strong>Total events</strong><div>{{ result.event_rows }}</div></div>
                     <div class="summary-card"><strong>Daily rows</strong><div>{{ result.daily_rows }}</div></div>
-                    <div class="summary-card"><strong>Outcome rows</strong><div>{{ result.outcome_rows }}</div></div>
+                    <div class="summary-card"><strong>Unique actors</strong><div>{{ result.data_summary.unique_actors if result.data_summary else '?' }}</div></div>
                     <div class="summary-card"><strong>Model rows</strong><div>{{ result.model_rows }}</div></div>
                 </div>
 
+                <h2>Data Summary</h2>
+                <table>
+                    <thead><tr><th>Source</th><th>Event Count</th></tr></thead>
+                    <tbody>
+                        {% for source, count in result.data_summary.source_counts.items() %}
+                            <tr><td>{{ source }}</td><td>{{ count }}</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
                 {% if result.plots %}
-                    <h2>Plots</h2>
-                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;align-items:start;">
+                    <h2>Visualizations</h2>
+                    <div class="plots-grid">
                         {% for p in result.plots %}
                             {% if p.title == 'plots_error' %}
                                 <div class="info-box error"><strong>Plot error</strong><span>{{ p.data }}</span></div>
+                            {% elif p.type == 'plotly' %}
+                                <figure class="plot-card plot-card-wide">
+                                    <figcaption>{{ p.title }} <span class="plot-kind">Plotly</span></figcaption>
+                                    <div class="plotly-wrap">{{ p.html | safe }}</div>
+                                </figure>
                             {% else %}
-                                <figure style="margin:0;background:var(--surface-strong);padding:12px;border-radius:12px;border:1px solid rgba(17,32,76,0.04);">
-                                    <figcaption style="font-weight:700;margin-bottom:8px;color:var(--muted);">{{ p.title }}</figcaption>
+                                <figure class="plot-card plot-card-wide">
+                                    <figcaption>{{ p.title }} <span class="plot-kind">PNG</span></figcaption>
                                     <img alt="{{ p.title }}" src="data:image/png;base64,{{ p.data }}" style="width:100%;height:auto;border-radius:8px;display:block;" />
                                 </figure>
                             {% endif %}
                         {% endfor %}
                     </div>
                 {% endif %}
-
-                <h2>Uploaded file counts</h2>
-                <table>
-                    <thead><tr><th>Filename</th><th>Parsed rows</th></tr></thead>
-                    <tbody>
-                        {% for filename, count in result.file_counts.items() %}
-                            <tr><td>{{ filename }}</td><td>{{ count }}</td></tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
 
                 <h2>Model metrics</h2>
                 <table>
@@ -330,5 +390,16 @@
             {% endif %}
         </div>
     </div>
+    <script>
+        window.addEventListener("load", function () {
+            if (!window.Plotly) {
+                return;
+            }
+
+            document.querySelectorAll(".plotly-graph-div").forEach(function (plot) {
+                window.Plotly.Plots.resize(plot);
+            });
+        });
+    </script>
 </body>
 </html>
